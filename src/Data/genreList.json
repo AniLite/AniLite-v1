@@ -1,0 +1,382 @@
+[
+    {
+        "id": 139,
+        "name": "Absurdist Humour",
+        "slug": "absurdist-humour"
+    },
+    {
+        "id": 204,
+        "name": "Action",
+        "slug": "action"
+    },
+    {
+        "id": 209,
+        "name": "Adventure",
+        "slug": "adventure"
+    },
+    {
+        "id": 164,
+        "name": "Ahegao",
+        "slug": "ahegao"
+    },
+    {
+        "id": 88,
+        "name": "Air Force",
+        "slug": "air-force"
+    },
+    {
+        "id": 95,
+        "name": "Alien",
+        "slug": "alien"
+    },
+    {
+        "id": 77,
+        "name": "All Girls School",
+        "slug": "all-girls-school"
+    },
+    {
+        "id": 129,
+        "name": "Alternative Past",
+        "slug": "alternative-past"
+    },
+    {
+        "id": 131,
+        "name": "Alternative Present",
+        "slug": "alternative-present"
+    },
+    {
+        "id": 76,
+        "name": "Android",
+        "slug": "android"
+    },
+    {
+        "id": 99,
+        "name": "Angel",
+        "slug": "angel"
+    },
+    {
+        "id": 205,
+        "name": "Angst",
+        "slug": "angst"
+    },
+    {
+        "id": 37,
+        "name": "Anime Influenced",
+        "slug": "anime-influenced"
+    },
+    {
+        "id": 215,
+        "name": "Anthropomorphism",
+        "slug": "anthropomorphism"
+    },
+    {
+        "id": 226,
+        "name": "Anti War",
+        "slug": "anti-war"
+    },
+    {
+        "id": 198,
+        "name": "Asia",
+        "slug": "asia"
+    },
+    {
+        "id": 102,
+        "name": "Assassin",
+        "slug": "assassin"
+    },
+    {
+        "id": 161,
+        "name": "Bakumatsu   Meiji Period",
+        "slug": "bakumatsu-meiji-period"
+    },
+    {
+        "id": 189,
+        "name": "Baseball",
+        "slug": "baseball"
+    },
+    {
+        "id": 170,
+        "name": "Basketball",
+        "slug": "basketball"
+    },
+    {
+        "id": 113,
+        "name": "Battle Royale",
+        "slug": "battle-royale"
+    },
+    {
+        "id": 70,
+        "name": "Bishounen",
+        "slug": "bishounen"
+    },
+    {
+        "id": 206,
+        "name": "Blackmail",
+        "slug": "blackmail"
+    },
+    {
+        "id": 89,
+        "name": "Bounty Hunter",
+        "slug": "bounty-hunter"
+    },
+    {
+        "id": 85,
+        "name": "Boxing",
+        "slug": "boxing"
+    },
+    {
+        "id": 142,
+        "name": "Breaking The Fourth Wall",
+        "slug": "breaking-the-fourth-wall"
+    },
+    {
+        "id": 253,
+        "name": "Buddhism",
+        "slug": "buddhism"
+    },
+    {
+        "id": 263,
+        "name": "Card Games",
+        "slug": "card-games"
+    },
+    {
+        "id": 12,
+        "name": "Cars",
+        "slug": "cars"
+    },
+    {
+        "id": 151,
+        "name": "China",
+        "slug": "china"
+    },
+    {
+        "id": 166,
+        "name": "Combat",
+        "slug": "combat"
+    },
+    {
+        "id": 212,
+        "name": "Comedy",
+        "slug": "comedy"
+    },
+    {
+        "id": 237,
+        "name": "Coming Of Age",
+        "slug": "coming-of-age"
+    },
+    {
+        "id": 231,
+        "name": "Conspiracy",
+        "slug": "conspiracy"
+    },
+    {
+        "id": 137,
+        "name": "Contemporary Fantasy",
+        "slug": "contemporary-fantasy"
+    },
+    {
+        "id": 270,
+        "name": "Content Indicators",
+        "slug": "content-indicators"
+    },
+    {
+        "id": 87,
+        "name": "Cooking",
+        "slug": "cooking"
+    },
+    {
+        "id": 242,
+        "name": "Cops",
+        "slug": "cops"
+    },
+    {
+        "id": 124,
+        "name": "Countryside",
+        "slug": "countryside"
+    },
+    {
+        "id": 51,
+        "name": "Crime",
+        "slug": "crime"
+    },
+    {
+        "id": 107,
+        "name": "Cross Dressing",
+        "slug": "cross-dressing"
+    },
+    {
+        "id": 218,
+        "name": "Cyberpunk",
+        "slug": "cyberpunk"
+    },
+    {
+        "id": 73,
+        "name": "Cycling",
+        "slug": "cycling"
+    },
+    {
+        "id": 138,
+        "name": "Dark Fantasy",
+        "slug": "dark-fantasy"
+    },
+    {
+        "id": 241,
+        "name": "Dark Skinned Girl",
+        "slug": "dark-skinned-girl"
+    },
+    {
+        "id": 109,
+        "name": "Deity",
+        "slug": "deity"
+    },
+    {
+        "id": 91,
+        "name": "Delinquent",
+        "slug": "delinquent"
+    },
+    {
+        "id": 281,
+        "name": "Dementia",
+        "slug": "dementia"
+    },
+    {
+        "id": 26,
+        "name": "Demons",
+        "slug": "demons"
+    },
+    {
+        "id": 121,
+        "name": "Desert",
+        "slug": "desert"
+    },
+    {
+        "id": 249,
+        "name": "Detective",
+        "slug": "detective"
+    },
+    {
+        "id": 228,
+        "name": "Disaster",
+        "slug": "disaster"
+    },
+    {
+        "id": 53,
+        "name": "Documentary",
+        "slug": "documentary"
+    },
+    {
+        "id": 39,
+        "name": "Doujinshi",
+        "slug": "doujinshi"
+    },
+    {
+        "id": 101,
+        "name": "Dragon",
+        "slug": "dragon"
+    },
+    {
+        "id": 236,
+        "name": "Drama",
+        "slug": "drama"
+    },
+    {
+        "id": 257,
+        "name": "Drifting",
+        "slug": "drifting"
+    },
+    {
+        "id": 271,
+        "name": "Dynamic",
+        "slug": "dynamic"
+    },
+    {
+        "id": 233,
+        "name": "Dystopia",
+        "slug": "dystopia"
+    },
+    {
+        "id": 122,
+        "name": "Earth",
+        "slug": "earth"
+    },
+    {
+        "id": 20,
+        "name": "Ecchi",
+        "slug": "ecchi"
+    },
+    {
+        "id": 61,
+        "name": "Elementary School",
+        "slug": "elementary-school"
+    },
+    {
+        "id": 272,
+        "name": "Elements",
+        "slug": "elements"
+    },
+    {
+        "id": 68,
+        "name": "Elf",
+        "slug": "elf"
+    },
+    {
+        "id": 261,
+        "name": "Epidemic",
+        "slug": "epidemic"
+    },
+    {
+        "id": 195,
+        "name": "Europe",
+        "slug": "europe"
+    },
+    {
+        "id": 283,
+        "name": "Family",
+        "slug": "family"
+    },
+    {
+        "id": 10,
+        "name": "Fantasy",
+        "slug": "fantasy"
+    },
+    {
+        "id": 120,
+        "name": "Fantasy World",
+        "slug": "fantasy-world"
+    },
+    {
+        "id": 240,
+        "name": "Female Student",
+        "slug": "female-student"
+    },
+    {
+        "id": 239,
+        "name": "Female Teacher",
+        "slug": "female-teacher"
+    },
+    {
+        "id": 175,
+        "name": "Feudal Warfare",
+        "slug": "feudal-warfare"
+    },
+    {
+        "id": 200,
+        "name": "Floating Island",
+        "slug": "floating-island"
+    },
+    {
+        "id": 55,
+        "name": "Food",
+        "slug": "food"
+    },
+    {
+        "id": 173,
+        "name": "Formula Racing",
+        "slug": "formula-racing"
+    },
+    {
+        "id": 190,
+        "name": "France",
+        "slug": "france"
+    }
+]

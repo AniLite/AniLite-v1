@@ -1,0 +1,347 @@
+{
+  "id": 62,
+  "type": "Anime (TV)",
+  "name_en": "Berserk",
+  "name_jp": "Kenpuu Denki Berserk",
+  "slug": "berserk",
+  "about": "Born from the corpse of his mother, a young mercenary known only as Guts, embraces the battlefield as his only means of survival. Day in and day out, putting his life on the line just to make enough to get by, he moves from one bloodshed to the next.\n\nAfter a run-in with the Band of the Hawk, a formidable troop of mercenaries, Guts is recruited by their charismatic leader Griffith, nicknamed the \"White Hawk.\" As he quickly climbed the ranks in order to become the head of the offensive faction, Guts proves to be a mighty addition to Griffith's force, taking Midland by storm. However, while the band's quest for recognition continues, Guts slowly realizes that the world is not as black-and-white as he once assumed.\n\nSet in the medieval era, Berserk is a dark, gritty tale that follows one man's struggle to find his own path, while supporting another's lust for power, and the unimaginable tragedy that begins to turn the wheels of fate.\n\n(Source: MAL Rewrite) ",
+  "started": "1997-10-08",
+  "is_completed": true,
+  "ended": "1998-04-01",
+  "rating": "81.95",
+  "num_of_eps": 25,
+  "studio": "OLM",
+  "poster_image": "https://media.kitsu.io/anime/poster_images/24/original.jpg?1597604321",
+  "cover_image": "https://media.kitsu.io/anime/cover_images/35/original.jpg?1597696281",
+  "genres": [
+    {
+      "id": 204,
+      "name": "Action"
+    },
+    {
+      "id": 209,
+      "name": "Adventure"
+    },
+    {
+      "id": 26,
+      "name": "Demons"
+    },
+    {
+      "id": 236,
+      "name": "Drama"
+    },
+    {
+      "id": 10,
+      "name": "Fantasy"
+    },
+    {
+      "id": 219,
+      "name": "Friendship"
+    },
+    {
+      "id": 210,
+      "name": "Horror"
+    },
+    {
+      "id": 23,
+      "name": "Military"
+    },
+    {
+      "id": 216,
+      "name": "Romance"
+    },
+    {
+      "id": 276,
+      "name": "Supernatural"
+    }
+  ],
+  "characters": [
+    {
+      "id": 1296,
+      "name": "Adon Coborlwitz",
+      "slug": "adon-coborlwitz"
+    },
+    {
+      "id": 1291,
+      "name": "Bazuso",
+      "slug": "bazuso"
+    },
+    {
+      "id": 1273,
+      "name": "Casca",
+      "slug": "casca"
+    },
+    {
+      "id": 1298,
+      "name": "Charlotte Beatrix Marie Rhody Windam",
+      "slug": "charlotte-beatrix-marie-rhody-windam"
+    },
+    {
+      "id": 1283,
+      "name": "Conrad",
+      "slug": "conrad-a8c06ef3-2999-4c10-a0c6-211ecab5faba"
+    },
+    {
+      "id": 1278,
+      "name": "Corkus",
+      "slug": "corkus"
+    },
+    {
+      "id": 1295,
+      "name": "Erica",
+      "slug": "erika-23699027-c6d6-45e4-9526-f5db25419cf8"
+    },
+    {
+      "id": 1294,
+      "name": "Foss",
+      "slug": "foss"
+    },
+    {
+      "id": 1279,
+      "name": "Gambino",
+      "slug": "gambino"
+    },
+    {
+      "id": 1284,
+      "name": "Gaston",
+      "slug": "gaston"
+    },
+    {
+      "id": 1289,
+      "name": "General Boscogne",
+      "slug": "general-boscogne"
+    },
+    {
+      "id": 1286,
+      "name": "Godo",
+      "slug": "godo"
+    },
+    {
+      "id": 1274,
+      "name": "Griffith",
+      "slug": "griffith"
+    },
+    {
+      "id": 1272,
+      "name": "Guts",
+      "slug": "guts"
+    },
+    {
+      "id": 1275,
+      "name": "Judeau",
+      "slug": "judeau"
+    },
+    {
+      "id": 1292,
+      "name": "Julius",
+      "slug": "julius-0f269f7f-81cb-470c-b10d-c978adaa9a37"
+    },
+    {
+      "id": 1285,
+      "name": "King of Midland",
+      "slug": "king-of-midland"
+    },
+    {
+      "id": 1290,
+      "name": "Lord Gennon",
+      "slug": "lord-gennon"
+    },
+    {
+      "id": 1276,
+      "name": "Pippin",
+      "slug": "pippin"
+    },
+    {
+      "id": 1293,
+      "name": "Queen of Midland",
+      "slug": "queen-of-midland"
+    },
+    {
+      "id": 1277,
+      "name": "Rickert",
+      "slug": "rickert"
+    },
+    {
+      "id": 1287,
+      "name": "Rosine",
+      "slug": "rosine"
+    },
+    {
+      "id": 1281,
+      "name": "Slan",
+      "slug": "slan"
+    },
+    {
+      "id": 1288,
+      "name": "The Count",
+      "slug": "the-count"
+    },
+    {
+      "id": 1282,
+      "name": "Ubik",
+      "slug": "ubik"
+    },
+    {
+      "id": 1280,
+      "name": "Void",
+      "slug": "void"
+    },
+    {
+      "id": 1297,
+      "name": "Zodd Nosferatu",
+      "slug": "zodd-nosferatu"
+    }
+  ],
+  "episode_summary": [
+    {
+      "Title": "The Black Swordsman",
+      "Summary": "A blacksmith is forging an enormous sword while a dark man with only one eye and one arm stands back and watches.   The dark man approaches a castle by a large town. There is an Inn there where some castle guards burst in with a girl demanding a fight, but instead just have some drinks. The grandfather of the girl attempts to rescue her, but is badly beaten in the attempt. Suddenly one of the castle guards is shot in the head by a crossbow bolt and others soon follow. The dark man walks into the inn and shoots another castle guard in the shoulder. He walks up to the injured castle guard and orders him to tell his master the Black Swordsman has come. He slays another soldier with his enormous sword and leaves the inn.    The injured castle guard goes to his Master's Minister and explains about the Black Swordsman. The minister orders that this criminal must be found. He is afraid of bringing the news to his master.   While a search begins, the injured castle guard tells his master wha",
+      "AirDate": "1997-10-08",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1123/original.jpg?1416322282"
+    },
+    {
+      "Title": "Band of the Hawk",
+      "Summary": "There is a great battle-taking place at a fort. The attackers are doing well, except one thing stands in their way - Baruso. Baruso is a huge grey knight and he states that none shall pass him. The leader of the attackers orders his knights to attack him and if they do, they shall receive a huge bounty. No one attempts to fight; they merely stand back in ore. But then a young 15-year-old Guts steps forward with a large sword intending to defeat Baruso. He is mocked and laughed at by the other soldiers. But it is when Baruso mocks him the most that Guts charges at Baruso. After a brief clash of sword and axe, Guts cracks Baruso's axe and then slices at his side with his giant sword. While Baruso falls to the ground begging for mercy Guts raises his sword and finishes Baruso off. The on looking defender's leader Griffith decides it is time to evacuate the fort.\nGuts receives his bounty from one of the leaders. The leader insists that Guts joins his army as a high-ranking soldier where he",
+      "AirDate": "1997-10-15",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1124/original.jpg?1416322285"
+    },
+    {
+      "Title": "First Battle",
+      "Summary": "Guts and Griffith begin their sword fight. After Guts gets knocked down, he says how good Griffith is with a sword; using only one hand (Guts likes the challenge). Griffith tells Guts they can carry on the fight after he has fully recovered, but Guts tells him to shut up and they carry on. Meanwhile Corcas and a few other members of the Hawk run up the hill to see what is happening. They want to help Griffith, but Casca orders them to stay back as this is what Griffith commanded. Griffith finds the sword fight fairly easy with Guts and soon enough he starts to swing at Guts' sides causing him injury. In desperation Guts pick soil up with the end of his sword and throws it into Griffith's face. While Griffith is temporarily blinded, Guts lifts up his sword to make the finishing blow, but as his sword lands, he finds Griffith balanced on top of the blade. Griffith informs Guts that he can't use his sword, but Guts laughs and says 'in battle, there is only one way you should be using your",
+      "AirDate": "1997-10-22",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1125/original.jpg?1416322288"
+    },
+    {
+      "Title": "The Hand of God",
+      "Summary": "Griffith and Guts develop their friendship. Griffith shows his \"Ha-ou no Tamago\" pendant. Guts reminisces about his childhood. He had been adopted by a fighter named Gambino, who trained him to fight. But Gambino became violent and despondent after being injured and one day tried to kill Gatts. In self defense, Guts killed Gambino and ever since, has been a traveling sword for hire.",
+      "AirDate": "1997-10-29",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1126/original.jpg?1416322291"
+    },
+    {
+      "Title": "Sword and the Wind",
+      "Summary": "Guts is now a commander in Griffith's army and he is taking great risks in battle. Although he succeeds, Casca takes him to task for it. Griffith is knighted and the nobles become jealous. Guts saves the Hawks in battle, to Casca's chagrin. ",
+      "AirDate": "1997-11-05",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1127/original.jpg?1416322294"
+    },
+    {
+      "Title": "Zodd the Immortal",
+      "Summary": "In another raid, Guts and Griffith come across a demon known as Nosferatu Zodd. Amazingly, they survive the combat against the powerful creature though both men are injured.",
+      "AirDate": "1997-11-12",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1128/original.jpg?1416322295"
+    },
+    {
+      "Title": "The Sword's Owner",
+      "Summary": "Griffith and Guts are injured and Griffith uses this in his political machinations; getting closer to the nobles and the King. He also flirts with the King's daughter. Guts and some of the Hawks feel that Griffith is pulling away from them. ",
+      "AirDate": "1997-11-19",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1129/original.jpg?1416322301"
+    },
+    {
+      "Title": "Conspiracy",
+      "Summary": "Griffith and Guts continue to have success in battle and Griffith is made a count. General Yurius is furious about this, and the minister Foss plants the idea of murder in his mind. The plan is to shoot Griffith with a poison arrow during an upcoming hunt. ",
+      "AirDate": "1997-11-28",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1130/original.jpg?1416322305"
+    },
+    {
+      "Title": "Assassination",
+      "Summary": "Griffith saves Charlotte when her horse bolts during a fox hunt. Yurius, the king's younger brother, attempts to have him assassinated, but the assassin's arrow strikes Griffith's pendant and leaves him unhurt. Griffith plots his revenge.",
+      "AirDate": "1997-12-03",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1131/original.jpg?1416322310"
+    },
+    {
+      "Title": "Nobleman",
+      "Summary": "Guts, sent by Griffith, assassinates Yurius and his son Adonis. Griffith gets closer to Charlotte. The Hawks depart for yet another mission.",
+      "AirDate": "1997-12-10",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1132/original.jpg?1416322313"
+    },
+    {
+      "Title": "The Battle",
+      "Summary": "On a stormy battlefield, Caska, Griffith's second in command, is wounded while fighting the leader of an enemy army. Guts runs to her rescue but when she passes out at the edge of a cliff, he cannot catch her in time and they both fall into the river below.",
+      "AirDate": "1997-12-17",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1133/original.jpg?1416322314"
+    },
+    {
+      "Title": "Together",
+      "Summary": "Caska is still unconcious, so Guts shelters them in a cave while the rain pours down. She comes to and tells Guts about her past and about Griffith's. She was a peasant's daughter and was bought by a nobleman, who tried to rape her. Griffith came by and threw down the sword which she used to kill the man. Ever since then, she has been with Griffith. She also reveals that Griffith financed his amibitions by selling himself to Gennon, a governor of Chudan.",
+      "AirDate": "1997-12-24",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1134/original.jpg?1416322315"
+    },
+    {
+      "Title": "Prepared For Death",
+      "Summary": "Guts and Caska try to fight their way back to the Hawks while the enemy army they were fighting from before try to stop them.",
+      "AirDate": "1998-01-07",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1135/original.jpg?1416322318"
+    },
+    {
+      "Title": "Bonfire of Dreams",
+      "Summary": "Caska finds Judeau's division of Hawks and leads them back to where Guts was fighting alone. Although injured, he defeated all the enemy soldiers by himself. They return to the Hawks' camp and Caska tends to Guts' wounds. But since Guts knows of Caska's feelings for Griffith, he pushes her to him and walks off.",
+      "AirDate": "1998-01-14",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1136/original.jpg?1416322319"
+    },
+    {
+      "Title": "The Decisive Battle",
+      "Summary": "The King of Midland and his various generals confer about Doldrey Castle, long since captured by the Chudan Empire. Griffith plans an attack and the King agrees despite the protests of his other officers. Only one other general supports Griffith's actions. The Hawks attack Doldrey.",
+      "AirDate": "1998-01-21",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1137/original.jpg?1416322322"
+    },
+    {
+      "Title": "The Conqueror",
+      "Summary": "With the help of Nosferatu Zodd (who threw a sword down on the battlefield after Guts broke his), Guts defeats the defender of Doldrey Castle in one on one combat.",
+      "AirDate": "1998-01-28",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1138/original.jpg?1416322323"
+    },
+    {
+      "Title": "Moment of Glory",
+      "Summary": "With the victory at Doldrey, Griffith is promoted to White Phoenix General, an aristocratic title. The Queen of Midland and other court conspirators try to poison Griffith.",
+      "AirDate": "1998-02-04",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1139/original.jpg?1416322325"
+    },
+    {
+      "Title": "Tombstone of Flames",
+      "Summary": "Griffith has his revenge by having the Queen's castle burned down, then covers his tracks by having Gatts kill the men he had hired to set the fire. With Griffith's position secure and winter coming, the Hawks relax at the castle. Guts, now 18, decides it is time for him to move on.",
+      "AirDate": "1998-02-11",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1140/original.jpg?1416322328"
+    },
+    {
+      "Title": "Separation",
+      "Summary": "Griffith will not let Guts simply leave. He says that Guts belongs to him. With a single swing of his sword, Guts defeats Griffith by cutting through his sword and leaves the Hawks. Later on, Griffith seduces Charlotte in her room and is caught (and sentenced to imprisonment).",
+      "AirDate": "1998-02-18",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1141/original.jpg?1416322330"
+    },
+    {
+      "Title": "Spark",
+      "Summary": "Guts is on the road again, occasionally entering in tournaments for practice. He arrives at the home of Godo the swordsmith and stays there for a while while Godo crafts a new sword for him. Guts practices more on his sword techniques with the help of Godo's little daughter Erika. Then he finds out about what happened to the Hawks and Griffith.",
+      "AirDate": "1998-02-25",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1142/original.jpg?1416322332"
+    },
+    {
+      "Title": "Confession",
+      "Summary": "Guts returns in time to save the remaining Hawks from annihilation. Caska is angry at him, then tries to kill herself in frustration, but Guts stops her. He and Caska become romantically involved.",
+      "AirDate": "1998-03-04",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1143/original.jpg?1416322333"
+    },
+    {
+      "Title": "Infiltration",
+      "Summary": "With Guts help, Caska and the Hawks hope to rescue Griffith. While they are off, a group of injured Hawks are wiped out by demons. Guts, Caska and the rest of the rescue group break a wounded, emaciated Griffith out of the Tower of Rebirth.",
+      "AirDate": "1998-03-11",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1144/original.jpg?1416322337"
+    },
+    {
+      "Title": "Eve of the Feast",
+      "Summary": "Breaking away from the King's pursuing armies, the few Hawks left contemplate their future. Guts comforts Caska, who is despondent over Griffith's condition. Griffith begins to dream/hallucinate and escapes in a wagon. As the Hawks pursue him, a solar eclipse suddenly transforms the landscape into a scene from hell.",
+      "AirDate": "1998-03-18",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1145/original.jpg?1416322339"
+    },
+    {
+      "Title": "The Great Eclipse",
+      "Summary": "Seduced by the promises of demons and his dreams from his childhood, Griffith agrees to fulfill his destiny and become one of the God Hand demons. A seal is branded onto the Hawks after Griffith confers with God Hand.",
+      "AirDate": "1998-03-25",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1146/original.jpg?1416322341"
+    },
+    {
+      "Title": "Time of Eternity",
+      "Summary": "Griffith's men are sacrificed to the demon's appetites. Guts fights on, at first to save Griffith, then to save himself from the result of Griffith's ambition. Judeau and the others there are all killed, except Caska. Griffith emerges as Femto, the fifth God Hand demon. Femto rapes Caska, and Guts cuts off his own trapped arm to help her. It is all in vain. Demons hold him down, impaling his right eye, while he screams in fury.\nA healed Guts leaves Godo's house for destinations unknown, to have his revenge on God Hand.",
+      "AirDate": "1998-04-01",
+      "Thumbnail": "https://media.kitsu.io/episodes/thumbnails/1147/original.jpg?1416322345"
+    }
+  ]
+}
