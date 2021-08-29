@@ -1,0 +1,19 @@
+.react-multiple-carousel__arrow--right {
+  right: 0px;
+  height: 85%;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.react-multiple-carousel__arrow--right:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.react-multiple-carousel__arrow--left {
+  left: 0px;
+  height: 85%;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.react-multiple-carousel__arrow--left:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
