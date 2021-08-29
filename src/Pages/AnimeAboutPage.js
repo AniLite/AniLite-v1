@@ -1,195 +1,81 @@
+import { Button, Card, Box, Typography, makeStyles } from "@material-ui/core";
 import React from "react";
-import {
-  makeStyles,
-  Box,
-  Grid,
-  Typography,
-  Button,
-  Card,
-  CardContent,
-  Link,
-  Modal,
-  Backdrop,
-  Fade,
-} from "@material-ui/core";
 import animeDetail from "../Data/animeDetail.json";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import LatestAnimeListCarousel from "../Components/LatestAnimeListCarousel";
+import AnimeListCarousel from "../Components/AnimeListCarousel";
+import Footer from "../Components/Footer";
+import animeList from "../Data/animeList.json";
+import { ReactComponent as Undraw_dreamer } from "../Media/Undraw_dreamer.svg";
+import { ReactComponent as Undraw_Waiting__for_you } from "../Media/Undraw_Waiting__for_you.svg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  coverImage: {
-    height: "100vh",
-    width: "100%",
-    backgroundImage: "linear-gradient(red, green)",
-  },
-  coverImageGradient: {
-    height: "100vh",
-    background: (styleprops) => styleprops.background,
-  },
-  genreButton: {
-    color: "white",
-    borderColor: "white",
-    borderRadius: 20,
-    margin: 5,
-    padding: "3px 10px",
-    textAlign: "center",
-  },
   infoCards: {
     padding: 6,
     marginBottom: 10,
     borderRadius: 15,
   },
-  carousel: {
-    margin: "10px 0px",
-    padding: "0 30px 30px 0",
-  },
-
-  card: {
-    margin: "0 10px 0 10px",
-    height: "100%",
-    borderRadius: 15,
-    backgroundColor: "#222",
-    textAlign: "center",
-    color: "white",
-  },
-  img: {
-    width: "100%",
-    padding: "5%",
-    borderRadius: 20,
-    // maxHeight: "200px",
-  },
-  modal: {
-    display: "flex",
-    marginLeft: "auto",
-    marginRight: "auto",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    backgroundColor: "rgba(0,0,0,0.8)",
-  },
-  paper: {
-    backgroundColor: "rgba(0,0,0,0.8)",
-    color: "white",
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
 }));
 
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 5,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 5,
-  },
-};
-
 export default function AnimeAboutPage() {
-  const [open, setOpen] = React.useState(false);
-  const [details, setDetails] = React.useState([]);
-
-  const handleOpen = (Detail, event) => {
-    setDetails(Detail);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const styleprops = {
-    background:
-      "linear-gradient(to bottom, rgba(0,0,0, 0) 10%, rgba(0,0,0, 0.7) 50%, rgba(34, 34, 34, 1)), url(" +
-      animeDetail.cover_image +
-      ")",
-  };
-  const classes = useStyles(styleprops);
+  const classes = useStyles();
   return (
     <>
-      <div className={classes.coverImageGradient}>
-        <Grid
-          container
-          style={{ position: "relative", top: "20vh" }}
-          spacing={1}
+      <img
+        className="w-full absolute"
+        id="animeAboutCoverImageGradient"
+        src={animeDetail.cover_image}
+        alt=""
+      />
+      <div className="grid grid-cols-12 gap-4 relative top-40 mb-60 w-full">
+        <div className="col-span-1" />
+        <div className="col-span-10">
+          <p className="text-white font-roboto text-6xl font-bold ">
+            {animeDetail.name_en}
+          </p>
+        </div>
+        <div className="col-span-1" />
+        <div className="col-span-1" />
+        <div className="col-span-3">
+          <img className="w-9/12" src={animeDetail.poster_image} alt="" />
+        </div>
+        <div className="col-span-1" />
+        <div
+          className="col-span-6 max-h-96 overflow-y-scroll p-3 rounded-xl"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(0,0,0,0.6)0%, rgba(0,0,0,0.3)70%, transparent)",
+          }}
         >
-          <Grid item xs={1} />
+          <p className="text-white font-roboto text-lg font-normal whitespace-pre-wrap ">
+            {animeDetail.about}
+          </p>
+        </div>
+        <div className="col-span-1" />
+        <div className="col-span-1" />
+        <div className="col-span-10">
+          {animeDetail.genres.map((item, id) => (
+            <Link to={`/genre/${item.name}`}>
+              <Button
+                key={id}
+                className="m-1"
+                color="secondary"
+                variant="outlined"
+                style={{ borderRadius: 20 }}
+              >
+                <p className="font-light font-quicksand">{item.name}</p>
+              </Button>
+            </Link>
+          ))}
+        </div>
+        <div className="col-span-1" />
+        <div className="col-span-12" />
+        <div className="col-span-1" />
 
-          <Grid item xs={10}>
-            <Box
-              fontWeight={700}
-              style={{
-                color: "white",
-              }}
-              fontSize="h3.fontSize"
-            >
-              {animeDetail.name_en}
-            </Box>
-          </Grid>
-          <Grid item xs={1} />
-          <Grid item xs={1} />
-          <Grid item xs={2}>
-            <img
-              style={{ width: "100%" }}
-              src={animeDetail.poster_image}
-              alt=""
-            />
-          </Grid>
-          <Grid item xs={2} />
-          <Grid item xs={6}>
-            <Typography
-              style={{
-                position: "relative",
-                whiteSpace: "pre-wrap",
-                maxHeight: 360,
-                overflowY: "scroll",
-                color: "white",
-              }}
-              variant="subtitle1"
-              color="secondary"
-              noWrap={true}
-            >
-              {animeDetail.about}
-            </Typography>
-          </Grid>
-          <Grid item xs={1} />
-          <Grid item xs={1} />
-          <Grid item xs={10}>
-            <div style={{ display: "flex", flexWrap: "wrap", marginTop: 20 }}>
-              {animeDetail.genres.map((item) => (
-                <Button variant="outlined" className={classes.genreButton}>
-                  {item.name}
-                </Button>
-              ))}
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-      <Grid container spacing={1}>
-        <Grid item xs={1} />
-        <Grid item xs={6}>
-          <Box
-            fontWeight={700}
-            style={{
-              color: "white",
-            }}
-            fontSize="h3.fontSize"
-          >
+        <div className="col-span-6">
+          <p className="text-white font-quicksand text-5xl font-medium mb-10">
             Info
-          </Box>
+          </p>
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
@@ -219,7 +105,6 @@ export default function AnimeAboutPage() {
                   {animeDetail.name_en}
                 </Box>
               </Card>
-
               <Card
                 className={classes.infoCards}
                 style={{ background: "#474CCB" }}
@@ -505,148 +390,43 @@ export default function AnimeAboutPage() {
               </Card>
             </Masonry>
           </ResponsiveMasonry>
-        </Grid>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={1} />
-        <Grid item xs={1} />
-        <Grid item xs={6}>
-          <Box
-            fontWeight={700}
-            style={{
-              color: "white",
-            }}
-            fontSize="h3.fontSize"
-          >
+        </div>
+        <div className="col-span-4">
+          <Undraw_Waiting__for_you className="max-w-md" />
+        </div>
+        <div className="col-span-1" />
+        <div className="col-span-1" />
+        <div className="col-span-6">
+          <p className="text-white font-quicksand text-5xl font-medium">
             Episode Summary
-          </Box>
-          <Carousel
-            className={classes.carousel}
-            responsive={responsive}
-            infinite={true}
-            showDots={true}
-            ssr
-          >
-            {animeDetail.episode_summary.map((item, id) => {
-              let Detail = [item.Title, item.Summary];
-              return (
-                <div key={id}>
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    to={`/anime-about/${item.slug}`}
-                  >
-                    <Card
-                      className={classes.card}
-                      onClick={(event) => handleOpen(Detail, event)}
-                    >
-                      <img className={classes.img} src={item.Thumbnail} />
-                      <CardContent style={{ padding: 5 }}>
-                        <Typography
-                          style={{ padding: 0, margin: 0 }}
-                          gutterBottom
-                          variant="h6"
-                        >
-                          {item.Title}
-                        </Typography>
-                        <Typography
-                          style={{ padding: 0, margin: 0 }}
-                          display={"inline"}
-                          noWrap={true}
-                          variant="body2"
-                        >
-                          {item.AirDate}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </div>
-              );
-            })}
-          </Carousel>
-        </Grid>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={1} />
-        <Grid item xs={1} />
-        <Grid item xs={6}>
-          <Box
-            fontWeight={700}
-            style={{
-              color: "white",
-            }}
-            fontSize="h3.fontSize"
-          >
-            Cast
-          </Box>
-          <Carousel
-            className={classes.carousel}
-            responsive={responsive}
-            infinite={true}
-            showDots={true}
-            ssr
-          >
-            {animeDetail.characters.map((item, id) => {
-              return (
-                <div style={{ textAlign: "center" }} key={id}>
-                  <img
-                    style={{
-                      maxHeight: "200px",
-                      // margin: "0 26px",
-                      borderRadius: 15,
-                    }}
-                    src="https://media.kitsu.io/characters/images/411/original.jpg?1483096805"
-                    alt=""
-                  />
-                  <Typography
-                    style={{
-                      padding: 0,
-                      margin: 0,
-                      // transform: "translateY(-100%)",
-                      color: "white",
-                    }}
-                    noWrap={true}
-                    variant="body1"
-                  >
-                    Luffy
-                  </Typography>
-                </div>
-              );
-            })}
-          </Carousel>
-        </Grid>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={1} />
-        <Grid item xs={1} />
-        <Grid item xs={10}>
-          <Box
-            fontWeight={700}
-            style={{
-              color: "white",
-            }}
-            fontSize="h3.fontSize"
-          >
-            Similar Animes
-          </Box>
-          <LatestAnimeListCarousel />
-        </Grid>
-      </Grid>
-      <Modal
-        aria-labelledby="transition-modal-details"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2>{details[0]}</h2>
-            <p>{details[1]}</p>
-          </div>
-        </Fade>
-      </Modal>
+          </p>
+          <AnimeListCarousel isLarge={false} needModal={true} />
+        </div>
+        <div className="col-span-4">
+          <Undraw_dreamer className="absolute max-w-lg" />
+        </div>
+        <div className="col-span-1" />
+        <div className="col-span-1" />
+        <div className="col-span-6">
+          <p className="text-white font-quicksand text-5xl font-medium">Cast</p>
+          <AnimeListCarousel isLarge={false} needModal={false} />
+        </div>
+        <div className="col-span-4"></div>
+        <div className="col-span-1" />
+        <div className="col-span-1" />
+        <div className="col-span-10">
+          <p className="text-white font-quicksand text-5xl font-medium ">
+            Latest Anime
+          </p>
+        </div>
+        <div className="col-span-1" />
+        <div className="col-span-1" />
+        <div className="col-span-10">
+          <AnimeListCarousel isLarge={true} data={animeList} />
+        </div>
+        <div className="col-span-1" />
+      </div>
+      <Footer />
     </>
   );
 }

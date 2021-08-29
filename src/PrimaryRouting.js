@@ -1,32 +1,29 @@
 import React from "react";
-import Header from "./Components/Header";
 import Homepage from "./Pages/Homepage";
+import AboutUs from "./Pages/AboutUs";
 import AnimeAboutPage from "./Pages/AnimeAboutPage";
-// import Profile from "./Profile";
-import {
-  HashRouter,
-  Switch,
-  Route,
-  useRouteMatch,
-  Redirect,
-} from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./Components/ScrollToTop";
-// import ProfileMedal from "./Profile/ProfileMedal";
-// import Login from "./Login";
-import App from "./App";
-
-import { Typography } from "@material-ui/core";
+import Navbar from "./Components/Navbar";
+import LatestAnimePage from "./Pages/LatestAnimePage";
+import CharacterDetailPage from "./Pages/CharacterDetailPage";
+import TopCharactersPage from "./Pages/TopCharactersPage";
+import TopAnimePage from "./Pages/TopAnimePage";
+import GenrePage from "./Pages/GenrePage";
 
 export default function PrimaryRouting() {
-  let { path, url } = useRouteMatch();
   return (
     <HashRouter>
       <ScrollToTop />
-      <Header />
+      <Navbar />
       <div>
         <Switch>
           <Route exact path={"/"}>
             <Homepage />
+          </Route>
+
+          <Route exact path={"/about-us"}>
+            <AboutUs />
           </Route>
 
           <Route exact path={"/anime-about"}>
@@ -37,31 +34,42 @@ export default function PrimaryRouting() {
             <AnimeAboutPage />
           </Route>
 
+          <Route exact path={"/latest-anime"}>
+            <LatestAnimePage />
+          </Route>
+
+          <Route path={"/latest-anime"}>
+            <LatestAnimePage />
+          </Route>
+
+          <Route exact path={"/top-anime"}>
+            <TopAnimePage />
+          </Route>
+
+          <Route exact path={"/top-characters"}>
+            <TopCharactersPage />
+          </Route>
+
+          <Route exact path={"/characters"}>
+            <CharacterDetailPage />
+          </Route>
+
+          <Route path={`/characters/:characterName`}>
+            <CharacterDetailPage />
+          </Route>
+
+          <Route exact path={"/genre"}>
+            <GenrePage />
+          </Route>
+
+          <Route path={`/genre/:genre`}>
+            <GenrePage />
+          </Route>
+
           {/* <Route path={"/profile"}>
             <Profile />
           </Route> */}
         </Switch>
-      </div>
-      <div
-        style={{
-          marginTop: 50,
-          height: 300,
-          width: "100%",
-          backgroundColor: "black",
-          color: "white",
-        }}
-      >
-        <Typography
-          variant={"body1"}
-          style={{
-            position: "relative",
-            top: "50%",
-            textAlign: "center",
-            transform: "translateY(-50%)",
-          }}
-        >
-          © AniLite 2021, made with {"<3"} by Shivansh & Aarush
-        </Typography>
       </div>
     </HashRouter>
   );

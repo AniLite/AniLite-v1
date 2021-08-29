@@ -1,13 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  overflow-x: hidden;
-  background-color: #222222;
-}
 
 *::-webkit-scrollbar {
   display: none;
+}
+
+body {
+  background-color: #222;
+  overflow-x: hidden;
+}
+
+@layer base {
+  NavLink {
+    @apply no-underline;
+  }
+}
+
+#listitems {
+  mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+}
+
+#animeAboutCoverImageGradient {
+  mask-image: linear-gradient(to bottom, black 25vh, transparent 100vh);
 }
