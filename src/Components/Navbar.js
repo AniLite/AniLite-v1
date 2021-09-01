@@ -1,11 +1,13 @@
 import { AppBar, Box, Button, Hidden, Toolbar } from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SearchModal from "./SearchModal";
+import animeList from "../Data/animeList.json";
 
 const Navbar = () => {
   return (
     <div>
-      <AppBar position="fixed" className="bg-black opacity-70 w-full">
+      <AppBar position="fixed" className="bg-black opacity-100 w-full">
         <Toolbar>
           <div>
             <NavLink
@@ -20,6 +22,33 @@ const Navbar = () => {
                 Home
               </Button>
             </NavLink>
+
+            <NavLink
+              className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
+              activeStyle={{
+                borderBottom: "1px solid red",
+              }}
+              to="/all-anime"
+              exact
+            >
+              <Button variant="contained" className="text-white bg-transparent">
+                All Anime
+              </Button>
+            </NavLink>
+
+            <NavLink
+              className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
+              activeStyle={{
+                borderBottom: "1px solid red",
+              }}
+              to="/top-anime"
+              exact
+            >
+              <Button variant="contained" className="text-white bg-transparent">
+                Top Anime
+              </Button>
+            </NavLink>
+
             <NavLink
               className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
               activeStyle={{
@@ -54,6 +83,9 @@ const Navbar = () => {
                 </Box>
               </Hidden>
             </NavLink>
+          </div>
+          <div className="flex ml-auto mr-3">
+            <SearchModal data={animeList} />
           </div>
         </Toolbar>
       </AppBar>

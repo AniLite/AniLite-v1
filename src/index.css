@@ -30,3 +30,11 @@ body {
 #animeAboutCoverImageGradient {
   mask-image: linear-gradient(to bottom, black 25vh, transparent 100vh);
 }
+
+#pagination > ul > li > button {
+  color: white;
+}
+
+#pagination > ul > li > button:hover {
+  background-color: #444;
+}

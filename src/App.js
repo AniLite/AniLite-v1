@@ -36,6 +36,10 @@ export default function App() {
             <PrimaryRouting />
           </Route>
 
+          <Route path="/all-anime">
+            <PrimaryRouting />
+          </Route>
+
           <Route path="/top-characters">
             <PrimaryRouting />
           </Route>

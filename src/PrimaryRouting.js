@@ -10,6 +10,7 @@ import CharacterDetailPage from "./Pages/CharacterDetailPage";
 import TopCharactersPage from "./Pages/TopCharactersPage";
 import TopAnimePage from "./Pages/TopAnimePage";
 import GenrePage from "./Pages/GenrePage";
+import AllAnimePage from "./Pages/AllAnimePage";
 
 export default function PrimaryRouting() {
   return (
@@ -40,6 +41,10 @@ export default function PrimaryRouting() {
 
           <Route path={"/latest-anime"}>
             <LatestAnimePage />
+          </Route>
+
+          <Route exact path={"/all-anime"}>
+            <AllAnimePage />
           </Route>
 
           <Route exact path={"/top-anime"}>
