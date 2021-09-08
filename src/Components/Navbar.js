@@ -2,10 +2,25 @@ import { AppBar, Box, Button, Hidden, Toolbar } from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SearchModal from "./SearchModal";
-import animeList from "../Data/animeList.json";
+import { useSelector } from "react-redux";
+import { ReactComponent as Loader } from "../Media/Loader.svg";
 
 const Navbar = () => {
-  return (
+  const animeList = useSelector((state) => state.animeList);
+  const { animes, error, loading } = animeList;
+
+  const characterList = useSelector((state) => state.characterList);
+  const { characters } = characterList;
+  return loading === true ? (
+    <div className="w-full h-full absolute ">
+      <Loader
+        style={{ maxWidth: "10%" }}
+        className="top-1/2 left-1/2 relative transform -translate-x-1/2 -translate-y-1/2"
+      />
+    </div>
+  ) : error ? (
+    <h1>Error: {error}</h1>
+  ) : (
     <div>
       <AppBar position="fixed" className="bg-black opacity-100 w-full">
         <Toolbar>
@@ -85,7 +100,7 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="flex ml-auto mr-3">
-            <SearchModal data={animeList} />
+            <SearchModal data={animes.concat(characters)} />
           </div>
         </Toolbar>
       </AppBar>

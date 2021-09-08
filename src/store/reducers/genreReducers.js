@@ -14,7 +14,7 @@ export const genreListReducer = (state = { genres: [] }, action) => {
     case GENRE_LIST_SUCCESS:
       return {
         loading: false,
-        genres: action.payload.data,
+        genres: action.payload.data.results,
       };
     case GENRE_LIST_FAIL:
       return {

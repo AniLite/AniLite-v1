@@ -9,10 +9,10 @@ import {
 
 import axios from "axios";
 
-export const listAnime = () => async (dispatch) => {
+export const listAnime = (param) => async (dispatch) => {
   try {
     dispatch({ type: ANIME_LIST_REQUEST });
-    const data = await axios.get("http://localhost:8000/api/anime/");
+    const data = await axios.get(`/api/anime/?limit=1000&${param}`);
     dispatch({ type: ANIME_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ANIME_LIST_FAIL, payload: error.message });
@@ -22,8 +22,8 @@ export const listAnime = () => async (dispatch) => {
 export const listAnimeDetail = (slug) => async (dispatch) => {
   try {
     dispatch({ type: ANIME_DETAIL_REQUEST });
-    const data = await axios.get(`http://localhost:8000/api/anime/${slug}`);
-    dispatch({ type: ANIME_DETAIL_SUCCESS, payload: data.data });
+    const data = await axios.get(`/api/anime/${slug}`);
+    dispatch({ type: ANIME_DETAIL_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ANIME_DETAIL_FAIL, payload: error.message });
   }

@@ -2,8 +2,13 @@ import React from "react";
 import SimpleMenu from "../Components/SimpleMenu";
 import TopAnimeList from "../Components/TopAnimeList";
 import Footer from "../Components/Footer";
+import { useParams } from "react-router";
 
 export default function TopAnimePage() {
+  let { genre } = useParams();
+  let genreSlug = null;
+  genre !== "all" ? (genreSlug = genre.toLowerCase()) : (genreSlug = null);
+
   return (
     <>
       <div className="grid grid-cols-12 gap-4 mt-20">
@@ -19,7 +24,7 @@ export default function TopAnimePage() {
         <div className="col-span-1" />
         <div className="col-span-1" />
         <div className="col-span-10">
-          <TopAnimeList />
+          <TopAnimeList genre={genreSlug} />
         </div>
         <div className="col-span-1" />
       </div>

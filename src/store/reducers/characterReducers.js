@@ -11,13 +11,14 @@ export const characterListReducer = (state = { characters: [] }, action) => {
   switch (action.type) {
     case CHARACTER_LIST_REQUEST:
       return {
+        ...state,
         loading: true,
         characters: [],
       };
     case CHARACTER_LIST_SUCCESS:
       return {
         loading: false,
-        characters: action.payload.data,
+        characters: action.payload.data.results,
       };
     case CHARACTER_LIST_FAIL:
       return {

@@ -3,9 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { Button, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { InputBase } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { ReactComponent as UndrawLocationSearch } from "../Media/UndrawLocationSearch.svg";
 import { ReactComponent as UndrawVoid } from "../Media/UndrawVoid.svg";
@@ -43,16 +42,13 @@ export default function SearchModal({ data }) {
     const searchWord = event.target.value;
     setSearchWord(searchWord);
     const newFilter = data.filter((value) => {
-      return value.name_en.toLowerCase().includes(searchWord.toLowerCase());
+      return value.name_en
+        ? value.name_en.toLowerCase().includes(searchWord.toLowerCase())
+        : value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
-
-    // newFilter.length === 0
-    //   ? setBorder("0.75rem")
-    //   : setBorder("0.75rem 0.75rem 0 0");
 
     if (searchWord === "") {
       setFilteredData([]);
-      // setBorder("0.75rem");
     } else {
       setFilteredData(newFilter);
     }
@@ -96,7 +92,7 @@ export default function SearchModal({ data }) {
               placeholder="Search..."
               onChange={handleFilter}
             />
-            {filteredData.length != 0 ? (
+            {filteredData.length !== 0 ? (
               <div
                 className="relative text-center w-1/2 left-1/2 transform -translate-x-1/2 rounded-b-xl"
                 style={{
@@ -111,18 +107,35 @@ export default function SearchModal({ data }) {
                 {filteredData.slice(0, 9).map((value, key) => {
                   return (
                     <div key={key} className="py-2 hover:bg-gray-800">
-                      <Link
-                        to={`/anime-about/${value.slug}`}
-                        onClick={handleClose}
-                        className="text-white py-2"
-                      >
-                        <p>{value.name_en} </p>
-                      </Link>
+                      {value.name_en ? (
+                        <Link
+                          to={`/anime-about/${value.slug}`}
+                          onClick={handleClose}
+                          className="text-white py-2"
+                        >
+                          <p>{value.name_en}</p>
+                        </Link>
+                      ) : (
+                        <Link
+                          to={`/characters/${value.slug}`}
+                          onClick={handleClose}
+                          className="text-white py-2"
+                        >
+                          <p className="text-red-500">{value.name}</p>
+                        </Link>
+                      )}
                     </div>
                   );
                 })}
                 <div className="py-2 hover:bg-gray-800 rounded-b-2xl">
-                  <Link to={`/`} onClick={handleClose} className="text-white">
+                  <Link
+                    to={{
+                      pathname: `/search/${searchWord}`,
+                      param1: filteredData,
+                    }}
+                    onClick={handleClose}
+                    className="text-white"
+                  >
                     <p className="text-purple-500">Show All...</p>
                   </Link>
                 </div>

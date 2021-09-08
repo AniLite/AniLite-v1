@@ -3,7 +3,7 @@ import animeList from "../Data/animeList.json";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import Pagination from "@material-ui/lab/Pagination";
-import { List, ListItem, Box, Divider } from "@material-ui/core";
+import { List, ListItem } from "@material-ui/core";
 import { motion } from "framer-motion";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 

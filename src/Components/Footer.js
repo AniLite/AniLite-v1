@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import { ReactComponent as Undraw_Playful_cat } from "../Media/Undraw_Playful_cat.svg";
+import { ReactComponent as UndrawPlayfulCat } from "../Media/UndrawPlayfulCat.svg";
 
 function Footer() {
   return (
@@ -13,7 +13,7 @@ function Footer() {
         color: "white",
       }}
     >
-      <Undraw_Playful_cat className="absolute left-2/4 " />
+      <UndrawPlayfulCat className="absolute left-2/4 " />
       <Typography
         variant={"body1"}
         style={{
@@ -23,7 +23,7 @@ function Footer() {
           transform: "translateY(-50%)",
         }}
       >
-        © AniLite 2021, made with {"<3"} by Shivansh & Aarush
+        © AniLite 2021 Made with ❤️ by Shivansh & Aarush
       </Typography>
     </div>
   );

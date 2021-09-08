@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import animeList from "../Data/animeList.json";
 import Button from "@material-ui/core/Button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { ReactComponent as Undraw_Lost_online } from "../Media/Undraw_Lost_online.svg";
-import Footer from "../Components/Footer";
+import { ReactComponent as UndrawLostOnline } from "../Media/UndrawLostOnline.svg";
 import genreList from "../Data/genreList.json";
 
 function CharacterDetailPage() {
@@ -15,7 +14,7 @@ function CharacterDetailPage() {
   return (
     <>
       <div className="grid grid-cols-12 gap-4 relative top-20 mb-60 w-full">
-        <Undraw_Lost_online className="absolute -top-40 max-w-lg left-2/3" />
+        <UndrawLostOnline className="absolute -top-40 max-w-lg left-2/3" />
         <div className="col-span-1" />
         <div className="col-span-8">
           <p className="text-purple-500 font-quicksand text-5xl font-medium ">

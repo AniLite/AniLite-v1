@@ -11,6 +11,7 @@ export const animeListReducer = (state = { animes: [] }, action) => {
   switch (action.type) {
     case ANIME_LIST_REQUEST:
       return {
+        ...state,
         loading: true,
         animes: [],
       };
@@ -29,17 +30,18 @@ export const animeListReducer = (state = { animes: [] }, action) => {
   }
 };
 
-export const animeDetailReducer = (state = { anime: {} }, action) => {
+export const animeDetailReducer = (state = { anime: [] }, action) => {
   switch (action.type) {
     case ANIME_DETAIL_REQUEST:
       return {
+        ...state,
         loading: true,
-        anime: {},
+        anime: [],
       };
     case ANIME_DETAIL_SUCCESS:
       return {
         loading: false,
-        anime: action.payload,
+        anime: action.payload.data,
       };
     case ANIME_DETAIL_FAIL:
       return {

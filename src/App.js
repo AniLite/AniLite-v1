@@ -52,6 +52,10 @@ export default function App() {
             <PrimaryRouting />
           </Route>
 
+          <Route path="/search">
+            <PrimaryRouting />
+          </Route>
+
           {/* <Route exact path="/login">
           <LoginSignup />
         </Route>

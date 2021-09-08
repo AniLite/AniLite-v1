@@ -1,10 +1,13 @@
 import { Button } from "@material-ui/core";
 import React from "react";
-import genreList from "../Data/genreList.json";
-import animeList from "../Data/animeList.json";
 import { Link } from "react-router-dom";
-
-const data = [...animeList];
+import { useSelector, useDispatch } from "react-redux";
+import { listGenres } from "../store/actions/genreActions";
+import { ReactComponent as Loader } from "../Media/Loader.svg";
+import { List, ListItem } from "@material-ui/core";
+import { motion } from "framer-motion";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { listAnime } from "../store/actions/animeActions";
 
 function colorGenerator() {
   var letters = "BCDEF".split("");
@@ -15,21 +18,46 @@ function colorGenerator() {
   return color;
 }
 
-function TopAnimeList() {
+function TopAnimeList(props) {
   const [genre, setGenre] = React.useState(null);
   const handleClick = (name, event) => {
     setGenre(name);
   };
+  const genreList = useSelector((state) => state.genreList);
+  const { genres, error, loading } = genreList;
+  const animeList = useSelector((state) => state.animeList);
+  const { animes } = animeList;
+  const data = [...animes];
+  const dispatch = useDispatch();
+  // console.log("genre:", genre, "prevGenre:", prevGenre);
 
-  return (
+  React.useEffect(() => {
+    if (genres.length === 0) {
+      dispatch(listGenres());
+    }
+    if (genre !== null) {
+      dispatch(listAnime("genre=" + genre));
+    }
+  }, [dispatch, genres.length]);
+
+  return loading === true ? (
+    <div className="w-full h-full absolute ">
+      <Loader
+        style={{ maxWidth: "10%" }}
+        className="top-1/2 left-1/2 relative transform -translate-x-1/2 -translate-y-1/2"
+      />
+    </div>
+  ) : error ? (
+    <h1>Error: {error}</h1>
+  ) : (
     <>
       <div>
-        {genreList.map((item, id) => {
+        {genres.map((item, id) => {
           let color = colorGenerator();
           return (
             <Button
               key={id}
-              className="m-1 py-1 "
+              className="m-1 py-1 opacity-80 hover:opacity-100"
               variant="outlined"
               style={{ borderRadius: 20, color: color, borderColor: color }}
               onClick={(event) => handleClick(item.name, event)}
@@ -39,71 +67,77 @@ function TopAnimeList() {
           );
         })}
       </div>
-      <div className="grid grid-cols-4 gap-2">
-        {genre === null
-          ? data
-              .map((anime) => [anime.rating, anime])
-              .sort()
-              .reverse()
-              .slice(0, 20)
-              .map((item, id) => (
-                <div key={id} className="my-3">
-                  <div
-                    id="listitems"
-                    className="mx-3 h-full col-span-1"
-                    key={id}
-                  >
-                    <Link to={`/anime-about/${item.slug}`}>
-                      <img
-                        id="listitems"
-                        className=" w-full rounded-md"
-                        src={item[1].poster_image}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                  <div className="relative -top-10">
-                    <p className="text-white text-center font-quicksand mx-3">
-                      {item[1].name_en}
-                    </p>
-                    <hr className="text-white mx-5" />
-                    <p className="text-white text-center font-quicksand">
-                      {item[1].is_completed ? "Completed" : "Ongoing"}
-                    </p>
-                  </div>
-                </div>
-              ))
-          : animeList.map((item, id) =>
-              item.genres.map((name) =>
-                name.name === genre ? (
-                  <div key={id} className="my-3">
-                    <div
-                      id="listitems"
-                      className="mx-3 h-full col-span-1"
-                      key={id}
+      <div className="w-full">
+        <List>
+          {genre === null
+            ? data.slice(0, 20).map((item, id) => (
+                <>
+                  <Link key={id} to={`/anime-about/${item.slug}`}>
+                    <ListItem
+                      id={item.name_en}
+                      component={motion.button}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.99 }}
+                      className="hover:bg-gray-800 absolute my-2 rounded-xl "
                     >
-                      <Link to={`/anime-about/${item.slug}`}>
-                        <img
-                          id="listitems"
-                          className="h-full w-full rounded-md"
-                          src={item.poster_image}
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                    <div className="relative -top-10">
-                      <p className="text-white text-center font-quicksand mx-3">
+                      <img
+                        className="rounded-md max-h-28 "
+                        src={item.poster_image}
+                        alt={item.name_en}
+                      />
+                      <p className="text-white text-xl flex justify-center items-center w-full font-quicksand">
                         {item.name_en}
                       </p>
-                      <hr className="text-white mx-5" />
-                      <p className="text-white text-center font-quicksand">
-                        {item.is_completed ? "Completed" : "Ongoing"}
-                      </p>
-                    </div>
-                  </div>
-                ) : null
-              )
-            )}
+                      <motion.div
+                        whileHover={{ x: 20 }}
+                        className=" absolute w-full h-full"
+                      >
+                        <NavigateNextIcon
+                          color="primary"
+                          className="relative left-full top-1/2 transform -translate-y-1/2 -translate-x-20 "
+                        />
+                      </motion.div>
+                    </ListItem>
+                  </Link>
+                </>
+              ))
+            : data.map((item, id) =>
+                item.genres.map((name) =>
+                  name.name === genre ? (
+                    <>
+                      <Link to={`/anime-about/${item.slug}`}>
+                        <ListItem
+                          key={id}
+                          id={item.name_en}
+                          component={motion.button}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.99 }}
+                          className="hover:bg-gray-800 absolute my-2 rounded-xl "
+                        >
+                          <img
+                            className="rounded-md max-h-28 "
+                            src={item.poster_image}
+                            alt={item.name_en}
+                          />
+                          <p className="text-white text-xl flex justify-center items-center w-full font-quicksand">
+                            {item.name_en}
+                          </p>
+                          <motion.div
+                            whileHover={{ x: 20 }}
+                            className=" absolute w-full h-full"
+                          >
+                            <NavigateNextIcon
+                              color="primary"
+                              className="relative left-full top-1/2 transform -translate-y-1/2 -translate-x-20 "
+                            />
+                          </motion.div>
+                        </ListItem>
+                      </Link>
+                    </>
+                  ) : null
+                )
+              )}
+        </List>
       </div>
     </>
   );
