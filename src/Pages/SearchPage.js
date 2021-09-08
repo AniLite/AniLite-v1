@@ -55,11 +55,11 @@ export default function SearchPage(props) {
               >
                 <img
                   className="rounded-md max-h-28 "
-                  src={item.poster_image}
+                  src={item.poster_image ||  item.image}
                   alt={item.name_en}
                 />
                 <p className="text-white text-xl flex justify-center items-center w-full font-quicksand">
-                  {item.name_en}
+                  {item.name_en || item.name}
                 </p>
                 <motion.div
                   whileHover={{ x: 20 }}
