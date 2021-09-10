@@ -7,6 +7,7 @@ import Footer from "../Components/Footer";
 import { listCharacterDetail } from "../store/actions/characterActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { ReactComponent as Loader } from "../Media/Loader.svg";
 
 function CharacterDetailPage() {
@@ -79,9 +80,16 @@ function CharacterDetailPage() {
             <p className="text-white font-roboto text-2xl font-light ">
               {display &&
                 character.anime.map((anime, key) =>
-                  key === character.anime.length - 1
-                    ? anime.name
-                    : anime.name + ", "
+                  key === character.anime.length - 1 ? (
+                    <Link to={`/anime-about/${anime.slug}`}>{anime.name}</Link>
+                  ) : (
+                    <>
+                      <Link to={`/anime-about/${anime.slug}`}>
+                        {anime.name}
+                      </Link>
+                      {", "}
+                    </>
+                  )
                 )}
             </p>
             <hr className="text-white my-2" />
@@ -100,7 +108,6 @@ function CharacterDetailPage() {
               src={character.image}
               alt=""
             />
-            <UndrawLostOnline className="max-w-lg " />
           </div>
           <div className="col-span-1" />
         </div>

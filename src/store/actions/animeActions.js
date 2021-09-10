@@ -12,7 +12,9 @@ import axios from "axios";
 export const listAnime = (param) => async (dispatch) => {
   try {
     dispatch({ type: ANIME_LIST_REQUEST });
-    const data = await axios.get(`https://anilite-api.herokuapp.com/api/anime/?limit=1000&${param}`);
+    const data = await axios.get(
+      `https://anilite-api.herokuapp.com/api/anime/?limit=1000&${param}`
+    );
     dispatch({ type: ANIME_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ANIME_LIST_FAIL, payload: error.message });
@@ -22,7 +24,9 @@ export const listAnime = (param) => async (dispatch) => {
 export const listAnimeDetail = (slug) => async (dispatch) => {
   try {
     dispatch({ type: ANIME_DETAIL_REQUEST });
-    const data = await axios.get(`https://anilite-api.herokuapp.com/api/anime/${slug}`);
+    const data = await axios.get(
+      `https://anilite-api.herokuapp.com/api/anime/${slug}`
+    );
     dispatch({ type: ANIME_DETAIL_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ANIME_DETAIL_FAIL, payload: error.message });

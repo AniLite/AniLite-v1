@@ -28,7 +28,8 @@ const Navbar = () => {
             <NavLink
               className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
               activeStyle={{
-                borderBottom: "1px solid red",
+                // borderBottom: "1px solid red",
+                backgroundColor: "rgba(139, 92, 246, 0.5)",
               }}
               to="/"
               exact
@@ -41,7 +42,8 @@ const Navbar = () => {
             <NavLink
               className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
               activeStyle={{
-                borderBottom: "1px solid red",
+                // borderBottom: "1px solid red",
+                backgroundColor: "rgba(139, 92, 246, 0.5)",
               }}
               to="/all-anime"
               exact
@@ -54,10 +56,10 @@ const Navbar = () => {
             <NavLink
               className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
               activeStyle={{
-                borderBottom: "1px solid red",
+                // borderBottom: "1px solid red",
+                backgroundColor: "rgba(139, 92, 246, 0.5)",
               }}
               to="/top-anime"
-              exact
             >
               <Button variant="contained" className="text-white bg-transparent">
                 Top Anime
@@ -67,7 +69,8 @@ const Navbar = () => {
             <NavLink
               className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
               activeStyle={{
-                borderBottom: "1px solid red",
+                // borderBottom: "1px solid red",
+                backgroundColor: "rgba(139, 92, 246, 0.5)",
               }}
               to="/about-us"
               exact
@@ -83,7 +86,7 @@ const Navbar = () => {
                 <Box
                   fontWeight={500}
                   fontSize="h4.fontSize"
-                  className="text-white"
+                  className="text-purple-500"
                 >
                   ANILITE
                 </Box>

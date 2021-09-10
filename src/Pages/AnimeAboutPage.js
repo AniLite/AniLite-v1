@@ -105,9 +105,9 @@ export default function AnimeAboutPage() {
           </div>
           <div className="col-span-1" />
           <div className="col-span-12" />
-          <div className="col-span-1" />
+          <div className="col-span-2" />
 
-          <div className="col-span-6">
+          <div className="col-span-8">
             <p className="text-white font-quicksand text-5xl font-medium mb-10">
               Info
             </p>
@@ -371,7 +371,7 @@ export default function AnimeAboutPage() {
                     }}
                     fontSize={"1.6rem"}
                   >
-                    #123
+                    {anime.popularity_rank}
                     <br />
                     (All Anime)
                   </Box>
@@ -415,7 +415,7 @@ export default function AnimeAboutPage() {
                     fontSize={"2.3rem"}
                     lineHeight={1.3}
                   >
-                    Source
+                    Age Rating
                   </Box>
                   <Box
                     fontWeight={400}
@@ -425,18 +425,16 @@ export default function AnimeAboutPage() {
                     }}
                     fontSize={"1.6rem"}
                   >
-                    Manga
+                    {anime.age_rating}
                   </Box>
                 </Card>
               </Masonry>
             </ResponsiveMasonry>
           </div>
-          <div className="col-span-4">
-            <UndrawWaitingForYou className="max-w-md" />
-          </div>
-          <div className="col-span-1" />
-          <div className="col-span-1" />
-          <div className="col-span-6">
+          <div className="col-span-2" />
+
+          <div className="col-span-2" />
+          <div className="col-span-8">
             <p className="text-white font-quicksand text-5xl font-medium">
               Episode Summary
             </p>
@@ -448,12 +446,9 @@ export default function AnimeAboutPage() {
               />
             )}
           </div>
-          <div className="col-span-4">
-            <UndrawDreamer className="absolute max-w-lg" />
-          </div>
-          <div className="col-span-1" />
-          <div className="col-span-1" />
-          <div className="col-span-6">
+          <div className="col-span-2" />
+          <div className="col-span-2" />
+          <div className="col-span-8">
             <p className="text-white font-quicksand text-5xl font-medium">
               Characters
             </p>
@@ -465,20 +460,19 @@ export default function AnimeAboutPage() {
               />
             )}
           </div>
-          <div className="col-span-4"></div>
-          <div className="col-span-1" />
-          <div className="col-span-1" />
-          <div className="col-span-10">
+          <div className="col-span-2" />
+          <div className="col-span-2" />
+          <div className="col-span-8">
             <p className="text-white font-quicksand text-5xl font-medium ">
               Latest Anime
             </p>
           </div>
-          <div className="col-span-1" />
-          <div className="col-span-1" />
-          <div className="col-span-10">
+          <div className="col-span-2" />
+          <div className="col-span-2" />
+          <div className="col-span-8">
             {/* {display && <AnimeListCarousel isLarge={true} data={animeList} /> } */}
           </div>
-          <div className="col-span-1" />
+          <div className="col-span-2" />
         </div>
         <Footer />
       </motion.div>

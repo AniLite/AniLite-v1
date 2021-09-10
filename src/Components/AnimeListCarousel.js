@@ -47,6 +47,26 @@ const responsive_small = {
   },
 };
 
+const responsive_small_noModal = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 4,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 3,
+  },
+};
+
 export default function AnimeListCarousel(props) {
   const [open, setOpen] = React.useState(false);
   const [details, setDetails] = React.useState([]);
@@ -63,7 +83,13 @@ export default function AnimeListCarousel(props) {
     <>
       <Carousel
         className="py-10"
-        responsive={props.isLarge ? responsive_large : responsive_small}
+        responsive={
+          props.isLarge
+            ? responsive_large
+            : props.needModal
+            ? responsive_small
+            : responsive_small_noModal
+        }
         infinite={true}
         centerMode={props.isLarge ? true : false}
         ssr
@@ -75,17 +101,25 @@ export default function AnimeListCarousel(props) {
                   <Link to={`/anime-about/${item.slug}`}>
                     <img
                       id="listitems"
-                      className="w-full h-full rounded-md"
+                      className="h-full rounded-md"
+                      style={{ height: "250px" }}
                       src={item.poster_image}
                       alt=""
                     />
                   </Link>
                 </div>
-                <div className="relative -top-9  ">
+                <div className="relative -top-9 flex flex-col justify-center align-middle items-center h-16">
                   <p className="text-white text-center font-quicksand mx-3">
                     {item.name_en}
                   </p>
-                  <hr className="text-white mx-5" />
+                  <hr
+                    className="text-transparent w-4/6"
+                    style={{
+                      color: "white",
+                      border: "0.01rem solid white",
+                      height: "0px",
+                    }}
+                  />
                   <p className="text-white text-center font-quicksand">
                     {item.is_completed ? "Completed" : "Ongoing"}
                   </p>
@@ -94,7 +128,12 @@ export default function AnimeListCarousel(props) {
             ))
           : props.needModal
           ? props.episode_summary.map((item, id) => {
-              let Detail = [item[0].Title, item[0].Summary];
+              let Detail = [
+                item[0].Title,
+                item[0].Summary,
+                item[0].Thumbnail,
+                "2020-08-20",
+              ];
               return (
                 <div key={id}>
                   <div
@@ -105,7 +144,11 @@ export default function AnimeListCarousel(props) {
                     <img
                       id="listitems"
                       className="w-full rounded-md"
-                      src={item[0].Thumbnail}
+                      src={
+                        item[0].Thumbnail !== ""
+                          ? item[0].Thumbnail
+                          : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8fX8lNuugRezDb-xv_aMZ09LyTX-jQoGssA&usqp=CAU"
+                      }
                       alt=""
                     />
                   </div>
@@ -130,6 +173,7 @@ export default function AnimeListCarousel(props) {
                   <img
                     id="listitems"
                     className="w-full h-full rounded-md"
+                    style={{ height: "240px" }}
                     src={
                       item.image === ""
                         ? "https://i.pinimg.com/originals/92/3c/28/923c28ecd5eaebf767ada2b853180c33.jpg"
@@ -137,7 +181,7 @@ export default function AnimeListCarousel(props) {
                     }
                     alt=""
                   />
-                  <div className="relative -top-10">
+                  <div className="relative -top-5">
                     <p className="text-white text-center font-quicksand mx-1">
                       {item.name}
                     </p>
@@ -155,7 +199,7 @@ export default function AnimeListCarousel(props) {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500,
+          timeout: 4000,
         }}
         onKeyDown={handleClose}
         style={{
@@ -167,13 +211,16 @@ export default function AnimeListCarousel(props) {
           top: "50%",
           transform: "translateY(-50%)",
           width: "75%",
-          backgroundColor: "rgba(0,0,0,0.95)",
+          backgroundColor: "rgba(0,0,0,0.5)",
+          backgroundImage: "url(" + details[2] + ")",
+          backgroundBlendMode: "soft-light",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           height: "75%",
         }}
       >
         <Fade in={open}>
           <div className="outline-none">
-            <UndrawGardening className="max-w-xs opacity-50 absolute -top-1/3 left-10" />
             <IconButton
               aria-label="Close"
               onClick={handleClose}
@@ -191,11 +238,14 @@ export default function AnimeListCarousel(props) {
               />
             </IconButton>
 
-            <div className="absolute text-white shadow-xl p-5 top-1/2 transform -translate-y-1/2 text-center ">
-              <p className="font-quicksand font-semibold text-3xl my-2 ">
+            <div className="absolute text-white p-5 top-1/2 transform -translate-y-1/2 text-center w-full">
+              <p className="absolute">
+                <span className="text-purple-500">Aired: </span> {details[3]}
+              </p>
+              <p className="font-quicksand font-semibold text-3xl my-2 text-center">
                 {details[0]}
               </p>
-              <p>{details[1]}</p>
+              <p className="text-center">{details[1]}</p>
             </div>
           </div>
         </Fade>

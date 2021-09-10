@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    border: "1px solid white",
+    border: "1px solid #8B5CF6",
     margin: "20px 0 10px",
   },
 }));

@@ -1,14 +1,15 @@
 import React from "react";
-import animeList from "../Data/animeList.json";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import Pagination from "@material-ui/lab/Pagination";
 import { List, ListItem } from "@material-ui/core";
 import { motion } from "framer-motion";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { useSelector } from "react-redux";
+import { ReactComponent as Loader } from "../Media/Loader.svg";
 
 const index = [
-  ".",
+  "All",
   "#",
   "A",
   "B",
@@ -38,56 +39,75 @@ const index = [
   "Z",
 ];
 
-const data = animeList.map((anime) => [anime.name_en, anime]).sort();
-
 export default function TopAnimePage() {
-  const itemsPerPage = 5;
-  const [page, setPage] = React.useState(1);
-  const [noOfPages] = React.useState(
-    Math.ceil(animeList.length / itemsPerPage)
+  const animeList = useSelector((state) => state.animeList);
+  const { animes, error, loading } = animeList;
+  const [data, setData] = React.useState(
+    animes.map((anime) => [anime.name_en, anime]).sort()
   );
-  const [activeIndexID, setActiveIndexID] = React.useState([
-    ...new Set(data.slice(0, itemsPerPage).map((item) => item[0][0])),
-  ]);
+
+  const completeList = [
+    ...animes.map((anime) => [anime.name_en, anime]).sort(),
+  ];
+
+  const itemsPerPage = 10;
+
+  const [page, setPage] = React.useState(1);
+
+  const [noOfPages, setNoOfPages] = React.useState(
+    Math.ceil(animes.length / itemsPerPage)
+  );
+
+  const [activeIndexID, setActiveIndexID] = React.useState(["All"]);
+
   const handleChange = (event, value) => {
     setPage(value);
-
     window.scrollTo(0, 0);
-
-    setActiveIndexID([
-      ...new Set(
-        data
-          .slice(itemsPerPage * value - itemsPerPage, itemsPerPage * value)
-          .map((item) => item[0][0])
-      ),
-    ]);
   };
 
   const handleLetterClick = (event) => {
-    const filteredAnime = data.filter((item) => {
-      return item[1].name_en[0]
-        .toLowerCase()
-        .includes(event.currentTarget.innerText.toLowerCase());
-    });
-
-    const value =
-      data.indexOf(filteredAnime[0]) + 1 > 0
-        ? Math.ceil((data.indexOf(filteredAnime[0]) + 1) / itemsPerPage)
-        : 0;
-
-    setPage(value);
-
-    setActiveIndexID([
-      ...new Set(
-        data
-          .slice(itemsPerPage * value - itemsPerPage, itemsPerPage * value)
-          .map((item) => item[0][0])
-      ),
-    ]);
-
+    if (event.currentTarget.innerText === "All") {
+      const filteredAnime = completeList;
+      setData(filteredAnime);
+      setNoOfPages(Math.ceil(filteredAnime.length / itemsPerPage));
+      setPage(1);
+      setActiveIndexID([event.currentTarget.innerText]);
+    } else if (
+      event.currentTarget.innerText !== "All" ||
+      "." ||
+      "1" ||
+      "2" ||
+      "3" ||
+      "4" ||
+      "5" ||
+      "6" ||
+      "7" ||
+      "8" ||
+      "9" ||
+      "0"
+    ) {
+      const filteredAnime = completeList.filter((item) => {
+        return item[1].name_en[0]
+          .toLowerCase()
+          .includes(event.currentTarget.innerText.toLowerCase());
+      });
+      setData(filteredAnime);
+      setNoOfPages(Math.ceil(filteredAnime.length / itemsPerPage));
+      setPage(1);
+      setActiveIndexID([event.currentTarget.innerText]);
+    } else {
+      const filteredAnime = completeList.filter((item) => {
+        return ['".", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"'].some(
+          (el) => item[1].name_en[0].toLowerCase().includes(el)
+        );
+      });
+      setData(filteredAnime);
+      setNoOfPages(Math.ceil(filteredAnime.length / itemsPerPage));
+      setPage(1);
+      setActiveIndexID([event.currentTarget.innerText]);
+    }
     window.scrollTo(0, 0);
   };
-
   React.useEffect(() => {
     activeIndexID.map(
       (ID) => (document.getElementById(ID).style.backgroundColor = "#8B5CF6")
@@ -101,7 +121,16 @@ export default function TopAnimePage() {
     };
   });
 
-  return (
+  return loading === true ? (
+    <div className="w-full h-full absolute ">
+      <Loader
+        style={{ maxWidth: "10%" }}
+        className="top-1/2 left-1/2 relative transform -translate-x-1/2 -translate-y-1/2"
+      />
+    </div>
+  ) : error ? (
+    <h1>Error: {error}</h1>
+  ) : (
     <>
       <div className="grid grid-cols-12 gap-4 mt-20">
         <div className="col-span-1" />
@@ -120,7 +149,6 @@ export default function TopAnimePage() {
             <motion.a
               key={key}
               id={letter}
-              // component={motion.button}
               whileHover={{ scale: 1.1 }}
               className="hover:bg-purple-500 px-3 rounded-lg cursor-default"
               onClick={(event) => handleLetterClick(event)}

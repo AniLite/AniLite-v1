@@ -138,7 +138,7 @@ export default function Homepage() {
         </div>
         <div className="col-span-2" />
         <div className="col-span-2" />
-        <div className="col-span-8">
+        <div className="col-span-8 mb-10">
           <TopAnimeList genre={null} />
           <NavLink to="/top-anime/all" exact>
             <Button
