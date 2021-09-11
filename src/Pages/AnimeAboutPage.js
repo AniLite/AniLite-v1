@@ -15,7 +15,7 @@ import { ReactComponent as Loader } from "../Media/Loader.svg";
 const useStyles = makeStyles((theme) => ({
   infoCards: {
     padding: 6,
-    marginBottom: 10,
+    // marginBottom: 10,
     borderRadius: 15,
   },
 }));
@@ -24,11 +24,12 @@ export default function AnimeAboutPage() {
   const [display, setDisplay] = React.useState(false);
   const { animeName } = useParams();
   const animeSlug = animeName;
-
   const animeDetail = useSelector((state) => state.animeDetail);
-
   const { anime, error, loading } = animeDetail;
 
+  const animeList = useSelector((state) => state.animeList);
+  const { animes } = animeList;
+  let data = [...animes];
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -90,7 +91,7 @@ export default function AnimeAboutPage() {
           <div className="col-span-10">
             {display &&
               anime.genres.map((item, id) => (
-                <Link key={id} to={`/top-anime/${item.name}`}>
+                <Link key={id} to={`/top-anime/${item.slug}`}>
                   <Button
                     key={id}
                     className="m-1"
@@ -114,7 +115,7 @@ export default function AnimeAboutPage() {
             <ResponsiveMasonry
               columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
             >
-              <Masonry gutter="20px">
+              <Masonry gutter="10px">
                 <Card
                   className={classes.infoCards}
                   style={{ background: "#B847CB" }}
@@ -262,42 +263,47 @@ export default function AnimeAboutPage() {
                     }}
                     fontSize={"1.6rem"}
                   >
-                    {anime.started}
+                    {anime.started === "1111-11-11"
+                      ? "Not yet Aired"
+                      : anime.started}
                   </Box>
                 </Card>
-                <Card
-                  className={classes.infoCards}
-                  style={{ background: "#AC0C63" }}
-                >
-                  <Box
-                    fontWeight={700}
-                    style={{
-                      color: "white",
-                    }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                {/* {display && anime.genres.length !== 0 ? (
+                  <Card
+                    className={classes.infoCards}
+                    style={{ background: "#AC0C63" }}
                   >
-                    Genres
-                  </Box>
-                  <Box
-                    fontWeight={400}
-                    style={{
-                      color: "white",
-                      marginTop: 10,
-                    }}
-                  >
-                    {display &&
-                      anime.genres.map((item, key) => (
-                        <Typography
-                          key={key}
-                          style={{ fontSize: "1.6rem" }}
-                          color="initial"
-                        >
-                          {item.name}
-                        </Typography>
-                      ))}
-                  </Box>
-                </Card>
+                    <Box
+                      fontWeight={700}
+                      style={{
+                        color: "white",
+                      }}
+                      fontSize={"2.3rem"}
+                      lineHeight={1.3}
+                    >
+                      Genres
+                    </Box>
+
+                    <Box
+                      fontWeight={400}
+                      style={{
+                        color: "white",
+                        marginTop: 10,
+                      }}
+                    >
+                      {display &&
+                        anime.genres.map((item, key) => (
+                          <Typography
+                            key={key}
+                            style={{ fontSize: "1.6rem" }}
+                            color="initial"
+                          >
+                            {item.name}
+                          </Typography>
+                        ))}
+                    </Box>
+                  </Card>
+                ) : null} */}
                 <Card
                   className={classes.infoCards}
                   style={{ background: "#B88400" }}
@@ -345,10 +351,12 @@ export default function AnimeAboutPage() {
                     }}
                     fontSize={"1.6rem"}
                   >
-                    {anime.ended}
+                    {anime.ended === "1111-11-11"
+                      ? "Not yet Aired"
+                      : anime.ended}
                   </Box>
                 </Card>
-                <Card />
+
                 <Card
                   className={classes.infoCards}
                   style={{ background: "#FF0000" }}
@@ -401,8 +409,7 @@ export default function AnimeAboutPage() {
                     {anime.rating}
                   </Box>
                 </Card>
-                <Card />
-                <Card />
+
                 <Card
                   className={classes.infoCards}
                   style={{ background: "#5257D7" }}
@@ -432,35 +439,44 @@ export default function AnimeAboutPage() {
             </ResponsiveMasonry>
           </div>
           <div className="col-span-2" />
-
-          <div className="col-span-2" />
-          <div className="col-span-8">
-            <p className="text-white font-quicksand text-5xl font-medium">
-              Episode Summary
-            </p>
-            {display && (
-              <AnimeListCarousel
-                isLarge={false}
-                needModal={true}
-                episode_summary={anime.episode_summary}
-              />
-            )}
-          </div>
-          <div className="col-span-2" />
-          <div className="col-span-2" />
-          <div className="col-span-8">
-            <p className="text-white font-quicksand text-5xl font-medium">
-              Characters
-            </p>
-            {display && (
-              <AnimeListCarousel
-                isLarge={false}
-                needModal={false}
-                characters={anime.characters}
-              />
-            )}
-          </div>
-          <div className="col-span-2" />
+          {display && anime.episode_summary[0][0].Title !== null ? (
+            anime.type === "Anime (TV)" ? (
+              <>
+                <div className="col-span-2" />
+                <div className="col-span-8">
+                  <p className="text-white font-quicksand text-5xl font-medium">
+                    Episode Summary
+                  </p>
+                  {display && (
+                    <AnimeListCarousel
+                      isLarge={false}
+                      needModal={true}
+                      episode_summary={anime.episode_summary}
+                    />
+                  )}
+                </div>
+                <div className="col-span-2" />
+              </>
+            ) : null
+          ) : null}
+          {display && anime.characters.length !== 0 ? (
+            <>
+              <div className="col-span-2" />
+              <div className="col-span-8">
+                <p className="text-white font-quicksand text-5xl font-medium">
+                  Characters
+                </p>
+                {display && (
+                  <AnimeListCarousel
+                    isLarge={false}
+                    needModal={false}
+                    characters={anime.characters}
+                  />
+                )}
+              </div>
+              <div className="col-span-2" />
+            </>
+          ) : null}
           <div className="col-span-2" />
           <div className="col-span-8">
             <p className="text-white font-quicksand text-5xl font-medium ">
@@ -470,7 +486,14 @@ export default function AnimeAboutPage() {
           <div className="col-span-2" />
           <div className="col-span-2" />
           <div className="col-span-8">
-            {/* {display && <AnimeListCarousel isLarge={true} data={animeList} /> } */}
+            {display && (
+              <AnimeListCarousel
+                isLarge={true}
+                data={data
+                  .sort((a, b) => (a.started < b.started ? 1 : -1))
+                  .slice(0, 15)}
+              />
+            )}
           </div>
           <div className="col-span-2" />
         </div>

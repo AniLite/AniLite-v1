@@ -79,6 +79,7 @@ export default function SearchModal({ data }) {
         <Fade in={open}>
           <>
             <input
+              autoFocus
               className="w-1/2 outline-none text-white relative left-1/2 transform -translate-x-1/2 px-3 py-3 "
               style={{
                 top: "15%",

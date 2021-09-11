@@ -133,16 +133,16 @@ export default function TopAnimePage() {
   ) : (
     <>
       <div className="grid grid-cols-12 gap-4 mt-20">
-        <div className="col-span-1" />
-        <div className="col-span-10">
+        <div className="col-span-2" />
+        <div className="col-span-8">
           <p className="text-purple-500 font-quicksand text-5xl font-medium ">
             All Anime
           </p>
         </div>
-        <div className="col-span-1" />
-        <div className="col-span-1" />
+        <div className="col-span-2" />
+        <div className="col-span-2" />
         <div
-          className="col-span-10 sticky top-16 z-10 py-2 flex flex-row justify-around"
+          className="col-span-8 sticky top-16 z-10 py-2 flex flex-row justify-around"
           style={{ backgroundColor: "#222" }}
         >
           {index.map((letter, key) => (
@@ -150,16 +150,16 @@ export default function TopAnimePage() {
               key={key}
               id={letter}
               whileHover={{ scale: 1.1 }}
-              className="hover:bg-purple-500 px-3 rounded-lg cursor-default"
+              className="hover:bg-purple-500 px-2.5 rounded-lg cursor-default"
               onClick={(event) => handleLetterClick(event)}
             >
               <p className="text-white font-roboto text-lg">{letter}</p>
             </motion.a>
           ))}
         </div>
-        <div className="col-span-1" />
-        <div className="col-span-1" />
-        <div className="col-span-10">
+        <div className="col-span-2" />
+        <div className="col-span-2" />
+        <div className="col-span-8">
           <List>
             {data
               .slice((page - 1) * itemsPerPage, page * itemsPerPage)
@@ -211,7 +211,7 @@ export default function TopAnimePage() {
             className="flex items-center justify-center"
           />
         </div>
-        <div className="col-span-1" />
+        <div className="col-span-2" />
       </div>
       <Footer />
     </>

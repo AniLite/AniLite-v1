@@ -120,7 +120,7 @@ export default function AnimeListCarousel(props) {
                       height: "0px",
                     }}
                   />
-                  <p className="text-white text-center font-quicksand">
+                  <p className="text-purple-300 text-center font-quicksand">
                     {item.is_completed ? "Completed" : "Ongoing"}
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export default function AnimeListCarousel(props) {
                 item[0].Title,
                 item[0].Summary,
                 item[0].Thumbnail,
-                "2020-08-20",
+                item[0]["Air Date"],
               ];
               return (
                 <div key={id}>
@@ -157,11 +157,11 @@ export default function AnimeListCarousel(props) {
                       {item[0].Title}
                     </p>
                     <hr className="text-white mx-5" />
-                    <p className="text-white text-center font-quicksand">
-                      {item[0].AirDate}
-                    </p>
-                    <p className="text-white text-center font-quicksand">
+                    <p className="text-white text-center font-light font-quicksand">
                       Episode {id + 1}
+                    </p>
+                    <p className="text-white text-center font-extralight font-quicksand">
+                      {item[0]["Air Date"]}
                     </p>
                   </div>
                 </div>

@@ -24,8 +24,8 @@ export default function TopAnimePage() {
   ) : (
     <>
       <div className="grid grid-cols-12 gap-4 mt-20">
-        <div className="col-span-1" />
-        <div className="col-span-9">
+        <div className="col-span-2" />
+        <div className="col-span-7">
           <p className="text-white font-quicksand text-5xl font-medium ">
             Top Anime
           </p>
@@ -33,12 +33,12 @@ export default function TopAnimePage() {
         <div className="col-span-1">
           <SimpleMenu menuItems={["All", "Airing", "Completed", "Favourite"]} />
         </div>
-        <div className="col-span-1" />
-        <div className="col-span-1" />
-        <div className="col-span-10">
+        <div className="col-span-2" />
+        <div className="col-span-2" />
+        <div className="col-span-8">
           <TopAnimeList genre={genreSlug} />
         </div>
-        <div className="col-span-1" />
+        <div className="col-span-2" />
       </div>
       <Footer />
     </>

@@ -29,7 +29,12 @@ function TopAnimeList(props) {
   const { animes } = animeList;
   const data = [...animes];
   const dispatch = useDispatch();
-  // console.log("genre:", genre, "prevGenre:", prevGenre);
+
+  // if (slugGenre !== null && genre === null) {
+  //   data = data.filter((value) => {
+  //     return value.genres.map((item) => item.slug).includes("comedy");
+  //   });
+  // }
 
   React.useEffect(() => {
     if (genres.length === 0) {
@@ -54,7 +59,20 @@ function TopAnimeList(props) {
       <div>
         {genres.map((item, id) => {
           let color = colorGenerator();
-          return (
+          return ![
+            "anime-influenced",
+            "Cooking",
+            "dementia",
+            "doujinshi",
+            "gender-bender",
+            "kids",
+            "mature",
+            "tokusatsu",
+            "workplace",
+            "yaoi",
+            "youth",
+            "yuri",
+          ].includes(item.slug) ? (
             <Button
               key={id}
               className="m-1 py-1 opacity-80 hover:opacity-100"
@@ -64,7 +82,7 @@ function TopAnimeList(props) {
             >
               <p className="font-roboto font-extralight ">{item.name}</p>
             </Button>
-          );
+          ) : null;
         })}
       </div>
       <div className="w-full">

@@ -8,13 +8,33 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #222;
+  overflow-x: hidden;
+}
+
 *::-webkit-scrollbar {
   display: none;
 }
 
-body {
-  background-color: #222;
-  overflow-x: hidden;
+body::-webkit-scrollbar {
+  display: initial;
+  width: 10px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @layer base {
@@ -37,4 +57,12 @@ body {
 
 #pagination > ul > li > button:hover {
   background-color: #444;
+}
+
+#pagination > ul > li > .MuiPaginationItem-root {
+  color: white;
+}
+
+button.MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-page.MuiPaginationItem-outlined.MuiPaginationItem-outlinedPrimary.MuiPaginationItem-sizeLarge {
+  border: 1px solid #8b5cf6;
 }
