@@ -13,7 +13,7 @@ function Footer() {
         color: "white",
       }}
     >
-      <UndrawPlayfulCat className="absolute left-2/4 " />
+      {/* <UndrawPlayfulCat className="absolute left-2/4 " /> */}
       <Typography
         variant={"body1"}
         style={{

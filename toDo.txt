@@ -1,14 +1,11 @@
-1. Link anime name to page in character detail page --> backend include slug instead of link
-2. Implement latest anime movie in latest anime page
-3. Multiple Genre Support and background highlight
-4. More components on Homepage
-5. Implement Framer motion
-6. All anime page real data implementation
-7. Anime About title color dynamic
-8. Fix side grid margins
-9. Info Cards Typography adjustment
-10. Info card -> Popularity, remove source
-11. Info card conditional rendering based on data availability
-12. Use placeholder image for characters
-13. Episode summary aired date in modal
-14. character detail page remove svg
+1. Hero section of Anime Detail revamp
+2. Multiple Genre Support and background highlight
+3. More components on Homepage
+4. Implement Framer motion
+5. Info Cards Typography adjustment
+6. reduce genres on homepage
+7. Footer
+8. Change List to Card view for Top Anime in Homepage
+9. Dynamic text color in navbar
+10. Start dynamic opacity after 50vh navbar
+ 

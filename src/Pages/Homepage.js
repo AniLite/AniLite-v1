@@ -44,6 +44,20 @@ export default function Homepage() {
       <div id="listitems" className="w-full mb-10">
         <Carousel fade pause={false}>
           <Carousel.Item className="max-h-screen">
+            <Link to={"/anime-about/re-zero-kara-hajimeru-isekai-seikatsu"}>
+              <img
+                className="d-block w-100"
+                src="https://i.pinimg.com/originals/31/4e/9a/314e9a89ae515e47879bcb8198ccfa76.png"
+                alt="Dragon Ball Super"
+              />
+
+              <Carousel.Caption>
+                <h3>Re:ZERO -Starting Life in Another World</h3>
+                <p>Just Believe In Me</p>
+              </Carousel.Caption>
+            </Link>
+          </Carousel.Item>
+          <Carousel.Item className="max-h-screen">
             <Link to={"/anime-about/steins-gate"}>
               <img
                 id="listitems"
@@ -72,21 +86,7 @@ export default function Homepage() {
             </Link>
           </Carousel.Item>
           <Carousel.Item className="max-h-screen">
-            <Link to={"/anime-about/steins-gate"}>
-              <img
-                className="d-block w-100"
-                src="https://images.hdqwalls.com/download/goku-2020-coming-um-1920x1080.jpg"
-                alt="Dragon Ball Super"
-              />
-
-              <Carousel.Caption>
-                <h3>Dragon Ball Super</h3>
-                <p>Kame Hame Ha</p>
-              </Carousel.Caption>
-            </Link>
-          </Carousel.Item>
-          <Carousel.Item className="max-h-screen">
-            <Link to={"/anime-about/higurashi-no-naku-koro-ni-gou"}>
+            <Link to={"/anime-about/higurashi-no-naku-koro-ni"}>
               <img
                 style={{ height: "120%" }}
                 className="d-block w-100"

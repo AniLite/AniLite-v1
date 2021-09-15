@@ -20,6 +20,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function colorGenerator() {
+  var letters = "BCDEF".split("");
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * letters.length)];
+  }
+  return color;
+}
+
 export default function AnimeAboutPage() {
   const [display, setDisplay] = React.useState(false);
   const { animeName } = useParams();
@@ -90,19 +99,26 @@ export default function AnimeAboutPage() {
           <div className="col-span-1" />
           <div className="col-span-10">
             {display &&
-              anime.genres.map((item, id) => (
-                <Link key={id} to={`/top-anime/${item.slug}`}>
-                  <Button
-                    key={id}
-                    className="m-1"
-                    color="secondary"
-                    variant="outlined"
-                    style={{ borderRadius: 20 }}
-                  >
-                    <p className="font-light font-quicksand">{item.name}</p>
-                  </Button>
-                </Link>
-              ))}
+              anime.genres.map((item, id) => {
+                let color = colorGenerator();
+                return (
+                  <Link key={id} to={`/top-anime/${item.slug}`}>
+                    <Button
+                      key={id}
+                      className="m-1"
+                      // color="secondary"
+                      variant="outlined"
+                      style={{
+                        borderRadius: 20,
+                        color: color,
+                        borderColor: color,
+                      }}
+                    >
+                      <p className="font-light font-quicksand">{item.name}</p>
+                    </Button>
+                  </Link>
+                );
+              })}
           </div>
           <div className="col-span-1" />
           <div className="col-span-12" />

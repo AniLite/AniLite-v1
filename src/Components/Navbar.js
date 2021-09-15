@@ -1,16 +1,42 @@
 import { AppBar, Box, Button, Hidden, Toolbar } from "@material-ui/core";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import SearchModal from "./SearchModal";
 import { useSelector } from "react-redux";
 import { ReactComponent as Loader } from "../Media/Loader.svg";
 
 const Navbar = () => {
+  const location = useLocation();
   const animeList = useSelector((state) => state.animeList);
   const { animes, error, loading } = animeList;
 
   const characterList = useSelector((state) => state.characterList);
   const { characters } = characterList;
+
+  const [background, setBackground] = React.useState(0);
+  const listenScrollEvent = () => {
+    if (window.scrollY > window.innerHeight / 2) {
+      let opacity =
+        ((window.scrollY - window.innerHeight / 2) / window.innerHeight) * 2 +
+        0.2;
+      setBackground(opacity);
+    } else {
+      setBackground(0.2);
+    }
+  };
+  React.useEffect(() => {
+    if (
+      location.pathname === "/" ||
+      location.pathname.includes("/anime-about/")
+    ) {
+      setBackground(0.2);
+      window.addEventListener("scroll", listenScrollEvent);
+      return () => window.removeEventListener("scroll", listenScrollEvent);
+    } else {
+      setBackground(1);
+    }
+  }, [location.pathname]);
+
   return loading === true ? (
     <div className="w-full h-full absolute ">
       <Loader
@@ -22,7 +48,11 @@ const Navbar = () => {
     <h1>Error: {error}</h1>
   ) : (
     <div>
-      <AppBar position="fixed" className="bg-black opacity-100 w-full">
+      <AppBar
+        position="fixed"
+        className="w-full"
+        style={{ background: `rgba(0,0,0,${background})`, boxShadow: "none" }}
+      >
         <Toolbar>
           <div>
             <NavLink
@@ -34,7 +64,10 @@ const Navbar = () => {
               to="/"
               exact
             >
-              <Button variant="contained" className="text-white bg-transparent">
+              <Button
+                variant="contained"
+                className="text-white bg-transparent shadow-none"
+              >
                 Home
               </Button>
             </NavLink>
@@ -48,7 +81,10 @@ const Navbar = () => {
               to="/all-anime"
               exact
             >
-              <Button variant="contained" className="text-white bg-transparent">
+              <Button
+                variant="contained"
+                className="text-white bg-transparent shadow-none"
+              >
                 All Anime
               </Button>
             </NavLink>
@@ -61,7 +97,10 @@ const Navbar = () => {
               }}
               to="/top-anime"
             >
-              <Button variant="contained" className="text-white bg-transparent">
+              <Button
+                variant="contained"
+                className="text-white bg-transparent shadow-none"
+              >
                 Top Anime
               </Button>
             </NavLink>
@@ -75,7 +114,10 @@ const Navbar = () => {
               to="/about-us"
               exact
             >
-              <Button variant="contained" className="text-white bg-transparent">
+              <Button
+                variant="contained"
+                className="text-white bg-transparent shadow-none"
+              >
                 About Us
               </Button>
             </NavLink>

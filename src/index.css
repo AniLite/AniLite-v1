@@ -30,6 +30,7 @@ body::-webkit-scrollbar-track {
 /* Handle */
 body::-webkit-scrollbar-thumb {
   background: #8b5cf6;
+  border-radius: 10px;
 }
 
 /* Handle on hover */

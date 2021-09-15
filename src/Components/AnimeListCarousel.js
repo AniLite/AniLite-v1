@@ -3,13 +3,14 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import "./AnimeListCarousel.css";
-import { Modal, Fade, Backdrop, IconButton } from "@material-ui/core";
+import { Modal, Fade, Backdrop, IconButton, Button } from "@material-ui/core";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
 import { ReactComponent as UndrawGardening } from "../Media/UndrawGardening.svg";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 const responsive_large = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 4,
   },
@@ -29,7 +30,6 @@ const responsive_large = {
 
 const responsive_small = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5,
   },
@@ -78,6 +78,30 @@ export default function AnimeListCarousel(props) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const prevEpi = () => {
+    let index =
+      props.episode_summary.map((e) => e[0].Title).indexOf(details[0]) - 1;
+
+    setDetails([
+      props.episode_summary[index][0].Title,
+      props.episode_summary[index][0].Summary,
+      props.episode_summary[index][0].Thumbnail,
+      props.episode_summary[index][0]["Air Date"],
+    ]);
+  };
+
+  const nextEpi = () => {
+    let index =
+      props.episode_summary.map((e) => e[0].Title).indexOf(details[0]) + 1;
+
+    setDetails([
+      props.episode_summary[index][0].Title,
+      props.episode_summary[index][0].Summary,
+      props.episode_summary[index][0].Thumbnail,
+      props.episode_summary[index][0]["Air Date"],
+    ]);
   };
   return (
     <>
@@ -176,7 +200,7 @@ export default function AnimeListCarousel(props) {
                     style={{ height: "240px" }}
                     src={
                       item.image === ""
-                        ? "https://i.pinimg.com/originals/92/3c/28/923c28ecd5eaebf767ada2b853180c33.jpg"
+                        ? "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fc0f78fb-9444-4b33-849c-097988b52dc4/d6v4ofz-90d17e73-3600-4298-9f97-1d073ce674b2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZjMGY3OGZiLTk0NDQtNGIzMy04NDljLTA5Nzk4OGI1MmRjNFwvZDZ2NG9mei05MGQxN2U3My0zNjAwLTQyOTgtOWY5Ny0xZDA3M2NlNjc0YjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.MRQ4WpdkdCbQ8BuGG6a6f5d4fsv0G1ZJHBDXJ2fU2dg"
                         : item.image
                     }
                     alt=""
@@ -212,7 +236,10 @@ export default function AnimeListCarousel(props) {
           transform: "translateY(-50%)",
           width: "75%",
           backgroundColor: "rgba(0,0,0,0.5)",
-          backgroundImage: "url(" + details[2] + ")",
+          backgroundImage:
+            details[2] !== ""
+              ? "url(" + details[2] + ")"
+              : "url(http://www.100hdwallpapers.com/cs_size/3d_abstract/ios_13_ipados_dark_mode_blue-cs_size.jpg)",
           backgroundBlendMode: "soft-light",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -239,13 +266,44 @@ export default function AnimeListCarousel(props) {
             </IconButton>
 
             <div className="absolute text-white p-5 top-1/2 transform -translate-y-1/2 text-center w-full">
-              <p className="absolute">
+              <p className="absolute top-0">
                 <span className="text-purple-500">Aired: </span> {details[3]}
               </p>
               <p className="font-quicksand font-semibold text-3xl my-2 text-center">
                 {details[0]}
               </p>
-              <p className="text-center">{details[1]}</p>
+              <p className="text-center mt-4">{details[1]}</p>
+            </div>
+            <div className="absolute top-1/2 w-full">
+              {props.episode_summary &&
+              props.episode_summary.map((e) => e[0].Title).indexOf(details[0]) -
+                1 !==
+                -1 ? (
+                <IconButton color="secondary" onClick={prevEpi}>
+                  <ArrowBackIosIcon color="secondary" />
+                </IconButton>
+              ) : (
+                <IconButton disabled>
+                  <ArrowBackIosIcon className="text-gray-600" />
+                </IconButton>
+              )}
+
+              {props.episode_summary &&
+              props.episode_summary.map((e) => e[0].Title).indexOf(details[0]) +
+                1 !==
+                props.episode_summary.length ? (
+                <IconButton
+                  className="float-right"
+                  color="secondary"
+                  onClick={nextEpi}
+                >
+                  <ArrowForwardIosIcon color="secondary" />
+                </IconButton>
+              ) : (
+                <IconButton className="float-right" disabled>
+                  <ArrowForwardIosIcon className="text-gray-600" />
+                </IconButton>
+              )}
             </div>
           </div>
         </Fade>
