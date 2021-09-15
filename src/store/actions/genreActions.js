@@ -9,7 +9,7 @@ export const listGenres = () => async (dispatch) => {
   try {
     dispatch({ type: GENRE_LIST_REQUEST });
     const data = await axios.get(
-      "https://anilite-api.herokuapp.com/api/genre/?limit=100"
+      "https://anilite-api-v1.herokuapp.com/api/genre/?limit=100"
     );
     dispatch({ type: GENRE_LIST_SUCCESS, payload: data });
   } catch (error) {

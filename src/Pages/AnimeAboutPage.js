@@ -66,38 +66,40 @@ export default function AnimeAboutPage() {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <img
-          className="w-full h-screen absolute"
+          className="w-full h-screen fixed"
           id="animeAboutCoverImageGradient"
           src={anime.cover_image}
           alt=""
+          style={{}}
         />
-        <div className="grid grid-cols-12 gap-4 relative top-40 mb-60 w-full">
-          <div className="col-span-1" />
-          <div className="col-span-10">
-            <p className="text-white font-roboto text-6xl font-bold ">
-              {anime.name_en}
-            </p>
-          </div>
-          <div className="col-span-1" />
-          <div className="col-span-1" />
-          <div className="col-span-3">
+        <div className="grid grid-cols-12 gap-4 relative top-40 mb-60 w-full opacity-0">
+          <div className="col-span-2" />
+          <div className="col-span-8"></div>
+          <div className="col-span-2" />
+          <div className="col-span-2" />
+          {/* <div className="col-span-3">
             <img className="w-9/12" src={anime.poster_image} alt="" />
           </div>
-          <div className="col-span-1" />
+          <div className="col-span-1" /> */}
           <div
-            className="col-span-6 max-h-96 overflow-y-scroll p-3 rounded-xl"
+            className="col-span-8 p-3 rounded-xl"
             style={{
               backgroundImage:
                 "linear-gradient(to bottom, rgba(0,0,0,0.6)0%, rgba(0,0,0,0.3)70%, transparent)",
             }}
           >
-            <p className="text-white font-roboto text-lg font-normal whitespace-pre-wrap ">
-              {anime.about}
+            <p className="text-white font-roboto text-6xl font-bold">
+              {anime.name_en}
             </p>
+            <div className="max-h-96 overflow-y-scroll">
+              <p className="text-white font-roboto text-lg font-normal whitespace-pre-wrap ">
+                {anime.about}
+              </p>
+            </div>
           </div>
-          <div className="col-span-1" />
-          <div className="col-span-1" />
-          <div className="col-span-10">
+          <div className="col-span-2" />
+          <div className="col-span-2" />
+          <div className="col-span-8">
             {display &&
               anime.genres.map((item, id) => {
                 let color = colorGenerator();
@@ -120,14 +122,22 @@ export default function AnimeAboutPage() {
                 );
               })}
           </div>
-          <div className="col-span-1" />
-          <div className="col-span-12" />
-          <div className="col-span-2" />
 
-          <div className="col-span-8">
-            <p className="text-white font-quicksand text-5xl font-medium mb-10">
+          <div className="col-span-1" />
+        </div>
+        <div
+          className="grid grid-cols-12 gap-4 absolute mb-60 w-full"
+          style={{ top: "75vh" }}
+          id="temp"
+        >
+          <div className="col-span-2" />
+          <div className="col-span-3">
+            <img className="w-9/12" src={anime.poster_image} alt="" />
+          </div>
+          <div className="col-span-5">
+            {/* <p className="text-white font-quicksand text-5xl font-medium mb-10">
               Info
-            </p>
+            </p> */}
             <ResponsiveMasonry
               columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
             >
@@ -512,8 +522,10 @@ export default function AnimeAboutPage() {
             )}
           </div>
           <div className="col-span-2" />
+          <div className="col-span-12">
+            <Footer />
+          </div>
         </div>
-        <Footer />
       </motion.div>
     )
   );

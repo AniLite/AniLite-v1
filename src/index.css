@@ -52,6 +52,10 @@ body::-webkit-scrollbar-thumb:hover {
   mask-image: linear-gradient(to bottom, black 25vh, transparent 100vh);
 }
 
+#temp {
+  background-image: linear-gradient(to bottom, transparent 0vh, #222222 25vh);
+}
+
 #pagination > ul > li > button {
   color: white;
 }
