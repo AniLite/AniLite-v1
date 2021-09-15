@@ -48,7 +48,7 @@ export default function Homepage() {
               <img
                 className="d-block w-100"
                 src="https://i.pinimg.com/originals/31/4e/9a/314e9a89ae515e47879bcb8198ccfa76.png"
-                alt="Dragon Ball Super"
+                alt="Re:Zero"
               />
 
               <Carousel.Caption>
@@ -86,17 +86,62 @@ export default function Homepage() {
             </Link>
           </Carousel.Item>
           <Carousel.Item className="max-h-screen">
-            <Link to={"/anime-about/higurashi-no-naku-koro-ni"}>
+            <Link to={"/anime-about/kakegurui"}>
               <img
                 style={{ height: "120%" }}
                 className="d-block w-100"
-                src="https://wallpapercave.com/wp/wp2538717.jpg"
-                alt="When They Cry"
+                src="https://images6.alphacoders.com/860/thumb-1920-860275.png"
+                alt="Kakegurui"
               />
 
               <Carousel.Caption>
-                <h3>When They Cry</h3>
-                <p>Mipaaah!</p>
+                <h3>Kakegurui</h3>
+                <p>Gamble Everything!</p>
+              </Carousel.Caption>
+            </Link>
+          </Carousel.Item>
+          <Carousel.Item className="max-h-screen">
+            <Link to={"/anime-about/elfen-lied"}>
+              <img
+                style={{ height: "120%" }}
+                className="d-block w-100"
+                src="https://i.pinimg.com/originals/68/26/cf/6826cf7624a62cf998978c64be29193f.png"
+                alt="Elfen Lied"
+              />
+
+              <Carousel.Caption>
+                <h3>Elfen Lied</h3>
+                <p>Lilium</p>
+              </Carousel.Caption>
+            </Link>
+          </Carousel.Item>
+          <Carousel.Item className="max-h-screen">
+            <Link to={"/anime-about/charlotte"}>
+              <img
+                style={{ height: "120%" }}
+                className="d-block w-100"
+                src="https://wallpaperaccess.com/full/6245397.jpg"
+                alt="Charlotte"
+              />
+
+              <Carousel.Caption>
+                <h3>Charlotte</h3>
+                <p>Its a promise</p>
+              </Carousel.Caption>
+            </Link>
+          </Carousel.Item>
+          <Carousel.Item className="max-h-screen">
+            <Link to={"/anime-about/youjo-senki"}>
+              <img
+                style={{ height: "120%" }}
+                className="d-block w-100"
+                src="https://wallpaperaccess.com/full/1476027.png"
+                alt="Saga of Tanya the Evil"
+              />
+
+              <Carousel.Caption>
+                <h3>Saga of Tanya the Evil</h3>
+                <p>I don't believe in God</p>
               </Carousel.Caption>
             </Link>
           </Carousel.Item>
