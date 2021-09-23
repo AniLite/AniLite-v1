@@ -8,6 +8,7 @@ import { List, ListItem } from "@material-ui/core";
 import { motion } from "framer-motion";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { listAnime } from "../store/actions/animeActions";
+import { useLocation } from "react-router";
 
 function colorGenerator() {
   var letters = "BCDEF".split("");
@@ -19,6 +20,7 @@ function colorGenerator() {
 }
 
 function TopAnimeList(props) {
+  const webpage = useLocation();
   const [genre, setGenre] = React.useState(null);
   const handleClick = (name, event) => {
     setGenre(name);
@@ -59,20 +61,57 @@ function TopAnimeList(props) {
       <div>
         {genres.map((item, id) => {
           let color = colorGenerator();
-          return ![
-            "anime-influenced",
-            "Cooking",
-            "dementia",
-            "doujinshi",
-            "gender-bender",
-            "kids",
-            "mature",
-            "tokusatsu",
-            "workplace",
-            "yaoi",
-            "youth",
-            "yuri",
-          ].includes(item.slug) ? (
+          return webpage.pathname === "/" ? (
+            ![
+              "cars",
+              "demons",
+              "documentary",
+              "family",
+              "friendship",
+              "food",
+              "anime-influenced",
+              "Cooking",
+              "dementia",
+              "doujinshi",
+              "gender-bender",
+              "kids",
+              "mature",
+              "tokusatsu",
+              "workplace",
+              "yaoi",
+              "youth",
+              "yuri",
+              "historical",
+              "game",
+              "law",
+              "mahou-shoujo",
+              "mahou-shounen",
+              "medical",
+              "parody",
+              "police",
+              "political",
+              "racing",
+              "samurai",
+              "school",
+              "shoujo-ai",
+              "shounen-ai",
+              "space",
+              "super-power",
+              "supernatural",
+              "vampire",
+              "zombies",
+            ].includes(item.slug) ? (
+              <Button
+                key={id}
+                className="m-1 py-1 opacity-80 hover:opacity-100"
+                variant="outlined"
+                style={{ borderRadius: 20, color: color, borderColor: color }}
+                onClick={(event) => handleClick(item.name, event)}
+              >
+                <p className="font-roboto font-extralight ">{item.name}</p>
+              </Button>
+            ) : null
+          ) : (
             <Button
               key={id}
               className="m-1 py-1 opacity-80 hover:opacity-100"
@@ -82,80 +121,67 @@ function TopAnimeList(props) {
             >
               <p className="font-roboto font-extralight ">{item.name}</p>
             </Button>
-          ) : null;
+          );
         })}
       </div>
-      <div className="w-full">
-        <List>
-          {genre === null
-            ? data.slice(0, 20).map((item, id) => (
-                <>
-                  <Link key={id} to={`/anime-about/${item.slug}`}>
-                    <ListItem
-                      id={item.name_en}
-                      component={motion.button}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.99 }}
-                      className="hover:bg-gray-800 absolute my-2 rounded-xl "
-                    >
+      <div className="grid grid-cols-5 gap-1 relative w-full">
+        {genre === null
+          ? data.slice(0, 20).map((item, id) => (
+              <>
+                <div key={id} className="my-3">
+                  <div className="mx-3 h-full col-span-1" key={id}>
+                    <Link to={`/anime-about/${item.slug}`}>
                       <img
-                        className="rounded-md max-h-28 "
+                        id="listitems"
+                        className="rounded-md w-full"
+                        style={{ height: "220px" }}
                         src={item.poster_image}
-                        alt={item.name_en}
+                        alt=""
                       />
-                      <p className="text-white text-xl flex justify-center items-center w-full font-quicksand">
-                        {item.name_en}
-                      </p>
-                      <motion.div
-                        whileHover={{ x: 20 }}
-                        className=" absolute w-full h-full"
-                      >
-                        <NavigateNextIcon
-                          color="primary"
-                          className="relative left-full top-1/2 transform -translate-y-1/2 -translate-x-20 "
-                        />
-                      </motion.div>
-                    </ListItem>
-                  </Link>
-                </>
-              ))
-            : data.map((item, id) =>
-                item.genres.map((name) =>
-                  name.name === genre ? (
+                    </Link>
+                    <p className="text-white text-center font-quicksand">
+                      {item.name_en}
+                    </p>
+                    <hr className="text-white mx-5" />
+                    <p className="text-white text-center font-quicksand">
+                      {item.is_completed ? "Completed" : "Ongoing"}
+                    </p>
+                  </div>
+                  <div className=""></div>
+                </div>
+              </>
+            ))
+          : data.map((item, id) =>
+              item.genres.map((name) =>
+                name.name === genre ? (
+                  <>
                     <>
-                      <Link to={`/anime-about/${item.slug}`}>
-                        <ListItem
-                          key={id}
-                          id={item.name_en}
-                          component={motion.button}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.99 }}
-                          className="hover:bg-gray-800 absolute my-2 rounded-xl "
-                        >
-                          <img
-                            className="rounded-md max-h-28 "
-                            src={item.poster_image}
-                            alt={item.name_en}
-                          />
-                          <p className="text-white text-xl flex justify-center items-center w-full font-quicksand">
+                      <div key={id} className="my-3">
+                        <div className="mx-3 h-full col-span-1" key={id}>
+                          <Link to={`/anime-about/${item.slug}`}>
+                            <img
+                              id="listitems"
+                              className="rounded-md w-full"
+                              style={{ height: "220px" }}
+                              src={item.poster_image}
+                              alt=""
+                            />
+                          </Link>
+                          <p className="text-white text-center font-quicksand">
                             {item.name_en}
                           </p>
-                          <motion.div
-                            whileHover={{ x: 20 }}
-                            className=" absolute w-full h-full"
-                          >
-                            <NavigateNextIcon
-                              color="primary"
-                              className="relative left-full top-1/2 transform -translate-y-1/2 -translate-x-20 "
-                            />
-                          </motion.div>
-                        </ListItem>
-                      </Link>
+                          <hr className="text-white mx-5" />
+                          <p className="text-white text-center font-quicksand">
+                            {item.is_completed ? "Completed" : "Ongoing"}
+                          </p>
+                        </div>
+                        <div className=""></div>
+                      </div>
                     </>
-                  ) : null
-                )
-              )}
-        </List>
+                  </>
+                ) : null
+              )
+            )}
       </div>
     </>
   );

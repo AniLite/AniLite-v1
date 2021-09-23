@@ -49,11 +49,16 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #animeAboutCoverImageGradient {
-  mask-image: linear-gradient(to bottom, black 25vh, transparent 100vh);
+  mask-image: linear-gradient(to bottom, black 25vh, transparent 110vh);
 }
 
 #temp {
-  background-image: linear-gradient(to bottom, transparent 0vh, #222222 25vh);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0vh,
+    rgba(32, 32, 32, 1) 50vh
+  );
+  z-index: 0;
 }
 
 #pagination > ul > li > button {

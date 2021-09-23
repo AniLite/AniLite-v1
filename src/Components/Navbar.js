@@ -17,11 +17,10 @@ const Navbar = () => {
   const listenScrollEvent = () => {
     if (window.scrollY > window.innerHeight / 2) {
       let opacity =
-        ((window.scrollY - window.innerHeight / 2) / window.innerHeight) * 2 +
-        0.2;
+        ((window.scrollY - window.innerHeight / 2) / window.innerHeight) * 2;
       setBackground(opacity);
     } else {
-      setBackground(0.2);
+      setBackground(0);
     }
   };
   React.useEffect(() => {
@@ -29,7 +28,7 @@ const Navbar = () => {
       location.pathname === "/" ||
       location.pathname.includes("/anime-about/")
     ) {
-      setBackground(0.2);
+      setBackground(0);
       window.addEventListener("scroll", listenScrollEvent);
       return () => window.removeEventListener("scroll", listenScrollEvent);
     } else {
@@ -56,10 +55,10 @@ const Navbar = () => {
         <Toolbar>
           <div>
             <NavLink
-              className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
+              className="hover:bg-purple-400 hover:bg-opacity-50 pt-1 pb-2.5 rounded"
               activeStyle={{
                 // borderBottom: "1px solid red",
-                backgroundColor: "rgba(139, 92, 246, 0.5)",
+                backgroundColor: "rgba(139, 92, 246, 1)",
               }}
               to="/"
               exact
@@ -67,16 +66,17 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
+                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 Home
               </Button>
             </NavLink>
 
             <NavLink
-              className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
+              className="hover:bg-purple-400 hover:bg-opacity-50 pt-1 pb-2.5 rounded"
               activeStyle={{
                 // borderBottom: "1px solid red",
-                backgroundColor: "rgba(139, 92, 246, 0.5)",
+                backgroundColor: "rgba(139, 92, 246, 1)",
               }}
               to="/all-anime"
               exact
@@ -84,32 +84,34 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
+                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 All Anime
               </Button>
             </NavLink>
 
             <NavLink
-              className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
+              className="hover:bg-purple-400 hover:bg-opacity-50 pt-1 pb-2.5 rounded"
               activeStyle={{
                 // borderBottom: "1px solid red",
-                backgroundColor: "rgba(139, 92, 246, 0.5)",
+                backgroundColor: "rgba(139, 92, 246, 1)",
               }}
               to="/top-anime"
             >
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
+                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 Top Anime
               </Button>
             </NavLink>
 
             <NavLink
-              className="hover:bg-gray-700 pt-1 pb-2.5 rounded"
+              className="hover:bg-purple-400 hover:bg-opacity-50 pt-1 pb-2.5 rounded"
               activeStyle={{
                 // borderBottom: "1px solid red",
-                backgroundColor: "rgba(139, 92, 246, 0.5)",
+                backgroundColor: "rgba(139, 92, 246, 1)",
               }}
               to="/about-us"
               exact
@@ -117,6 +119,7 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
+                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 About Us
               </Button>
@@ -129,6 +132,7 @@ const Navbar = () => {
                   fontWeight={500}
                   fontSize="h4.fontSize"
                   className="text-purple-500"
+                  style={{ textShadow: "1px 1px 3px black" }}
                 >
                   ANILITE
                 </Box>

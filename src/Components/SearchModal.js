@@ -12,7 +12,7 @@ import { ReactComponent as UndrawVoid } from "../Media/UndrawVoid.svg";
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: 10,
-    backgroundColor: "transparent",
+    backgroundColor: "rgba(0,0,0,0.4)",
     transition: "background 0.3s ease-in-out",
     "&:hover": {
       backgroundColor: "rgba(209, 42, 100, 0.3)",

@@ -11,10 +11,11 @@ import { ReactComponent as UndrawDreamer } from "../Media/UndrawDreamer.svg";
 import { ReactComponent as UndrawWaitingForYou } from "../Media/UndrawWaitingForYou.svg";
 import { Link } from "react-router-dom";
 import { ReactComponent as Loader } from "../Media/Loader.svg";
+import FadeInWhenVisible from "../Components/FadeInWhenVisible";
 
 const useStyles = makeStyles((theme) => ({
   infoCards: {
-    padding: 6,
+    padding: 12,
     // marginBottom: 10,
     borderRadius: 15,
   },
@@ -41,11 +42,24 @@ export default function AnimeAboutPage() {
   let data = [...animes];
   const dispatch = useDispatch();
 
+  const [opacity, setOpacity] = React.useState(1);
+  const listenScrollEvent = () => {
+    if (window.scrollY > 5) {
+      let opacity = window.scrollY / (0.5 * window.innerHeight);
+      console.log(opacity);
+      setOpacity(1 - opacity);
+    } else {
+      setOpacity(1);
+    }
+  };
+
   React.useEffect(() => {
     if (anime.slug !== animeSlug) {
       dispatch(listAnimeDetail(animeSlug));
     }
     setDisplay(true);
+    window.addEventListener("scroll", listenScrollEvent);
+    return () => window.removeEventListener("scroll", listenScrollEvent);
   }, [dispatch, animeName]);
 
   const classes = useStyles();
@@ -65,74 +79,111 @@ export default function AnimeAboutPage() {
         animate={{ opacity: [0, 1] }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        <img
-          className="w-full h-screen fixed"
-          id="animeAboutCoverImageGradient"
-          src={anime.cover_image}
-          alt=""
-          style={{}}
-        />
-        <div className="grid grid-cols-12 gap-4 relative top-40 mb-60 w-full opacity-0">
-          <div className="col-span-2" />
-          <div className="col-span-8"></div>
-          <div className="col-span-2" />
+        <div className="bg-black">
+          <img
+            className="w-full h-screen fixed opacity-50 filter blur-sm"
+            id="animeAboutCoverImageGradient"
+            src={anime.cover_image}
+            alt=""
+          />
+        </div>
+
+        <div className="grid grid-cols-12 gap-4 relative top-40 mb-60 w-full ">
           <div className="col-span-2" />
           {/* <div className="col-span-3">
             <img className="w-9/12" src={anime.poster_image} alt="" />
           </div>
           <div className="col-span-1" /> */}
           <div
-            className="col-span-8 p-3 rounded-xl"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom, rgba(0,0,0,0.6)0%, rgba(0,0,0,0.3)70%, transparent)",
-            }}
+            className="col-span-8 rounded-xl"
+            // style={{
+            //   backgroundImage:
+            //     "linear-gradient(to bottom, rgba(0,0,0,0.6)0%, rgba(0,0,0,0.3)70%, transparent)",
+            // }}
           >
-            <p className="text-white font-roboto text-6xl font-bold">
+            <p
+              className="text-purple-500 font-roboto text-6xl font-bold"
+              style={{
+                textShadow: "2px 2px 5px black",
+                opacity: opacity,
+                letterSpacing: "1px",
+              }}
+            >
               {anime.name_en}
             </p>
-            <div className="max-h-96 overflow-y-scroll">
-              <p className="text-white font-roboto text-lg font-normal whitespace-pre-wrap ">
-                {anime.about}
-              </p>
+            <br />
+            <div className="col-span-2" />
+            <div className="col-span-2" />
+            <div className="col-span-8 rounded-xl" style={{ zIndex: 2 }}>
+              <div className="max-h-96 overflow-y-scroll" style={{ zIndex: 2 }}>
+                <p
+                  className="text-white font-roboto text-lg font-normal whitespace-pre-wrap "
+                  style={{
+                    textShadow: "1px 1px 2px black",
+                    opacity: opacity,
+                    zIndex: 2,
+                  }}
+                >
+                  {anime.about}
+                </p>
+              </div>
             </div>
+            <div className="col-span-2" />
           </div>
           <div className="col-span-2" />
           <div className="col-span-2" />
-          <div className="col-span-8">
-            {display &&
-              anime.genres.map((item, id) => {
-                let color = colorGenerator();
-                return (
-                  <Link key={id} to={`/top-anime/${item.slug}`}>
-                    <Button
-                      key={id}
-                      className="m-1"
-                      // color="secondary"
-                      variant="outlined"
-                      style={{
-                        borderRadius: 20,
-                        color: color,
-                        borderColor: color,
-                      }}
-                    >
-                      <p className="font-light font-quicksand">{item.name}</p>
-                    </Button>
-                  </Link>
-                );
-              })}
-          </div>
+          <div className="col-span-8">{/*  */}</div>
 
           <div className="col-span-1" />
         </div>
         <div
           className="grid grid-cols-12 gap-4 absolute mb-60 w-full"
-          style={{ top: "75vh" }}
+          style={{ top: "50vh", paddingTop: "50vh" }}
           id="temp"
         >
           <div className="col-span-2" />
+          <div className="col-span-8">
+            <FadeInWhenVisible>
+              <p
+                className="text-purple-500 font-roboto text-6xl mb-10 font-bold"
+                // style={{
+                //   opacity: 1 - opacity,
+                //   transform: "scale(" + (1 - opacity) + ")",
+                // }}
+              >
+                {anime.name_en}
+              </p>
+            </FadeInWhenVisible>
+          </div>
+          <div className="col-span-2" />
+          <div className="col-span-2" />
           <div className="col-span-3">
             <img className="w-9/12" src={anime.poster_image} alt="" />
+            <div className="relative justify-center align-middle items-center w-9/12">
+              {display &&
+                anime.genres.map((item, id) => {
+                  {
+                    /* let color = colorGenerator(); */
+                  }
+                  return (
+                    <Link key={id} to={`/top-anime/${item.slug}`}>
+                      <Button
+                        key={id}
+                        className="m-1"
+                        color="secondary"
+                        variant="outlined"
+                        style={{
+                          borderRadius: 20,
+                          // color: color,
+                          // borderColor: color,
+                        }}
+                      >
+                        <p className="font-light font-quicksand">{item.name}</p>
+                      </Button>
+                    </Link>
+                  );
+                })}
+            </div>
           </div>
           <div className="col-span-5">
             {/* <p className="text-white font-quicksand text-5xl font-medium mb-10">
@@ -147,22 +198,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#B847CB" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     English Name
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.name_en}
                   </Box>
@@ -172,22 +224,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#474CCB" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Japanese Name
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.name_jp}
                   </Box>
@@ -197,22 +250,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#8D1697" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Format
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.type}
                   </Box>
@@ -222,22 +276,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#AE4141" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Status
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.is_completed ? "Completed" : "Ongoing"}
                   </Box>
@@ -247,22 +302,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#5400BE" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Episodes
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.num_of_eps}
                   </Box>
@@ -272,85 +328,51 @@ export default function AnimeAboutPage() {
                   style={{ background: "#16973A" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Aired
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.started === "1111-11-11"
                       ? "Not yet Aired"
                       : anime.started}
                   </Box>
                 </Card>
-                {/* {display && anime.genres.length !== 0 ? (
-                  <Card
-                    className={classes.infoCards}
-                    style={{ background: "#AC0C63" }}
-                  >
-                    <Box
-                      fontWeight={700}
-                      style={{
-                        color: "white",
-                      }}
-                      fontSize={"2.3rem"}
-                      lineHeight={1.3}
-                    >
-                      Genres
-                    </Box>
-
-                    <Box
-                      fontWeight={400}
-                      style={{
-                        color: "white",
-                        marginTop: 10,
-                      }}
-                    >
-                      {display &&
-                        anime.genres.map((item, key) => (
-                          <Typography
-                            key={key}
-                            style={{ fontSize: "1.6rem" }}
-                            color="initial"
-                          >
-                            {item.name}
-                          </Typography>
-                        ))}
-                    </Box>
-                  </Card>
-                ) : null} */}
                 <Card
                   className={classes.infoCards}
                   style={{ background: "#B88400" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Studio
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.studio}
                   </Box>
@@ -360,22 +382,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#0AA2D2" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Ended
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.ended === "1111-11-11"
                       ? "Not yet Aired"
@@ -388,22 +411,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#FF0000" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Popularity
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.popularity_rank}
                     <br />
@@ -415,22 +439,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#38C8D1" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Rating
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.rating}
                   </Box>
@@ -441,22 +466,23 @@ export default function AnimeAboutPage() {
                   style={{ background: "#5257D7" }}
                 >
                   <Box
-                    fontWeight={700}
+                    fontWeight={500}
                     style={{
                       color: "white",
                     }}
-                    fontSize={"2.3rem"}
-                    lineHeight={1.3}
+                    fontSize={"2rem"}
+                    lineHeight={1}
                   >
                     Age Rating
                   </Box>
                   <Box
-                    fontWeight={400}
+                    fontWeight={300}
                     style={{
                       color: "white",
-                      marginTop: 10,
+                      marginTop: 20,
                     }}
-                    fontSize={"1.6rem"}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
                   >
                     {anime.age_rating}
                   </Box>
