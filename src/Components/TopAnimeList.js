@@ -140,7 +140,9 @@ function TopAnimeList(props) {
                       />
                     </Link>
                     <p className="text-white text-center font-quicksand">
-                      {item.name_en}
+                      {item.name_en.length > 35
+                        ? item.name_en.slice(0, 33) + "..."
+                        : item.name_en}
                     </p>
                     <hr className="text-white mx-5" />
                     <p className="text-white text-center font-quicksand">
@@ -168,7 +170,9 @@ function TopAnimeList(props) {
                             />
                           </Link>
                           <p className="text-white text-center font-quicksand">
-                            {item.name_en}
+                            {item.name_en.length > 35
+                              ? item.name_en.slice(0, 33) + "..."
+                              : item.name_en}
                           </p>
                           <hr className="text-white mx-5" />
                           <p className="text-white text-center font-quicksand">

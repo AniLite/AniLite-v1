@@ -47,7 +47,13 @@ function LatestAnimePage() {
         </div>
         <div className="col-span-2">
           <p className="text-white relative top-1/2 font-quicksand text-sm font-medium text-right">
-            Showing {(page - 1) * itemsPerPage + 1}-{page * itemsPerPage} /{" "}
+            Showing{" "}
+            {page !== noOfPages
+              ? (page - 1) * itemsPerPage + 1 + "-" + page * itemsPerPage
+              : movieParam.pathname === "/latest-anime"
+              ? (page - 1) * itemsPerPage + 1 + "-" + data.length
+              : (page - 1) * itemsPerPage + 1 + "-" + movies.length}{" "}
+            /{" "}
             {movieParam.pathname === "/latest-anime"
               ? data.length
               : movies.length}{" "}

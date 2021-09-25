@@ -13,7 +13,7 @@ export const listCharacter = (param) => async (dispatch) => {
   try {
     dispatch({ type: CHARACTER_LIST_REQUEST });
     const data = await axios.get(
-      `https://anilite-api-v1.herokuapp.com/api/character/?limit=700&${param}`
+      `https://anilite-api-v1.herokuapp.com/api/character/?limit=1500&${param}`
     );
     dispatch({ type: CHARACTER_LIST_SUCCESS, payload: data });
   } catch (error) {

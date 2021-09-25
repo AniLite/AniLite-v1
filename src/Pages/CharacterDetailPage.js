@@ -93,10 +93,14 @@ function CharacterDetailPage() {
                 )}
             </p>
             <hr className="text-white my-2" />
-            <p className="text-white font-quicksand text-xl font-light mt-4">
-              <span className="text-purple-500 font-roboto">Other Names: </span>
-              {character.other_names}
-            </p>
+            {display && character.other_names !== "" ? (
+              <p className="text-white font-quicksand text-xl font-light mt-4">
+                <span className="text-purple-500 font-roboto">
+                  Other Names:{" "}
+                </span>
+                {character.other_names}
+              </p>
+            ) : null}
             <p className="text-white font-quicksand text-xl font-light mt-4 whitespace-pre-wrap">
               {character.about ? description() : "Not Available"}
             </p>
@@ -105,7 +109,11 @@ function CharacterDetailPage() {
           <div className="col-span-2">
             <img
               className="w-full opacity-100 sticky top-20 rounded-xl"
-              src={character.image}
+              src={
+                character.image === ""
+                  ? "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fc0f78fb-9444-4b33-849c-097988b52dc4/d6v4ofz-90d17e73-3600-4298-9f97-1d073ce674b2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZjMGY3OGZiLTk0NDQtNGIzMy04NDljLTA5Nzk4OGI1MmRjNFwvZDZ2NG9mei05MGQxN2U3My0zNjAwLTQyOTgtOWY5Ny0xZDA3M2NlNjc0YjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.MRQ4WpdkdCbQ8BuGG6a6f5d4fsv0G1ZJHBDXJ2fU2dg"
+                  : character.image
+              }
               alt=""
             />
           </div>

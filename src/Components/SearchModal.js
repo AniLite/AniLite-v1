@@ -5,7 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { ReactComponent as UndrawLocationSearch } from "../Media/UndrawLocationSearch.svg";
 import { ReactComponent as UndrawVoid } from "../Media/UndrawVoid.svg";
 
@@ -24,17 +24,31 @@ export default function SearchModal({ data }) {
   const [open, setOpen] = React.useState(false);
   const [filteredData, setFilteredData] = React.useState([]);
   const [searchWord, setSearchWord] = React.useState("");
+  let history = useHistory();
   // const [border, setBorder] = React.useState("0.75rem 0.75rem 0 0");
 
   const handleOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (e) => {
     setOpen(false);
     setFilteredData([]);
     setSearchWord("");
   };
+
+  // const enterToSearch = (event) => {
+  //   if (event.keyCode == 13) {
+  //     setOpen(false);
+  //     console.log(searchWord);
+  //     history.push(`/search/${searchWord}`);
+  //   }
+  // };
+
+  // React.useEffect(() => {
+  //   window.addEventListener("keydown", enterToSearch);
+  //   return () => window.removeEventListener("keydown", enterToSearch);
+  // }, []);
 
   const classes = useStyles();
 

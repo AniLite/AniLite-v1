@@ -487,6 +487,32 @@ export default function AnimeAboutPage() {
                     {anime.age_rating}
                   </Box>
                 </Card>
+                <Card
+                  className={classes.infoCards}
+                  style={{ background: "#5257D7" }}
+                >
+                  <Box
+                    fontWeight={500}
+                    style={{
+                      color: "white",
+                    }}
+                    fontSize={"2rem"}
+                    lineHeight={1}
+                  >
+                    Directors
+                  </Box>
+                  <Box
+                    fontWeight={300}
+                    style={{
+                      color: "white",
+                      marginTop: 20,
+                    }}
+                    fontSize={"1.5rem"}
+                    lineHeight={1}
+                  >
+                    {anime.directors}
+                  </Box>
+                </Card>
               </Masonry>
             </ResponsiveMasonry>
           </div>

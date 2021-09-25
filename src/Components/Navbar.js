@@ -66,7 +66,6 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
-                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 Home
               </Button>
@@ -84,7 +83,6 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
-                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 All Anime
               </Button>
@@ -101,7 +99,6 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
-                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 Top Anime
               </Button>
@@ -119,7 +116,6 @@ const Navbar = () => {
               <Button
                 variant="contained"
                 className="text-white bg-transparent shadow-none"
-                style={{ textShadow: "4px 4px 8px purple" }}
               >
                 About Us
               </Button>

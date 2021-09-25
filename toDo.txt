@@ -1,9 +1,12 @@
-1. Hero section of Anime Detail revamp
-2. Multiple Genre Support and background highlight
-3. More components on Homepage
-4. Implement Framer motion
-5*. Info Cards Typography adjustment
-6*. reduce genres on homepage
-7. Footer
-8*. Change List to Card view for Top Anime in Homepage
- 
+Remove shadow from navbar button text \/
+other names in character detail conditional rendering \/
+latest anime carousel in anime about click scrolls up
+top anime component truncate name after 2 lines \/
+showing 1-15 animes fix to proper length in last page \/
+director card \/
+enter to search 
+show all search character placeholder \/
+Multiple Genre Support and background highlight
+More components on Homepage
+Implement Framer motion
+Footer
