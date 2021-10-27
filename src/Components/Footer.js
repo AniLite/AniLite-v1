@@ -1,6 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
-import { ReactComponent as UndrawPlayfulCat } from "../Media/UndrawPlayfulCat.svg";
+import { Typography, Button } from "@material-ui/core";
+import { motion } from "framer-motion";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 function Footer() {
   return (
@@ -13,17 +14,132 @@ function Footer() {
         color: "white",
       }}
     >
-      {/* <UndrawPlayfulCat className="absolute left-2/4 " /> */}
       <Typography
-        variant={"body1"}
+        variant={"h4"}
         style={{
           position: "relative",
-          top: "50%",
+          top: "20%",
           textAlign: "center",
           transform: "translateY(-50%)",
+          fontFamily: "quicksand",
         }}
       >
-        © AniLite 2021 Made with ❤️ by Shivansh & Aarush
+        A N I L I T E
+      </Typography>
+
+      <Typography
+        variant={"body1"}
+        component={motion.div}
+        whileHover={{ scale: 1.09 }}
+        style={{
+          color: "white",
+          textTransform: "capitalize",
+          fontFamily: "quicksand",
+          position: "relative",
+          top: "30%",
+          textAlign: "center",
+          cursor: "pointer",
+        }}
+      >
+        Made with ❤️ by SHIVANSH & AARUSH
+      </Typography>
+
+      {/* <motion.div
+        whileHover={{ scale: 1.2 }}
+        style={{
+          position: "relative",
+          top: "30%",
+          textAlign: "center",
+        }}
+      >
+        <a
+          href="https://github.com/hsnavihS"
+          target="_blank"
+          style={{ color: "white" }}
+        >
+          <GitHubIcon style={{ margin: 10 }} />
+        </a>
+      </motion.div> */}
+      <div
+        style={{
+          position: "relative",
+          top: "40%",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <Typography
+          variant={"caption"}
+          component={motion.button}
+          whileHover={{ scale: 1.09 }}
+          style={{
+            color: "whitesmoke",
+            textTransform: "capitalize",
+            fontFamily: "quicksand",
+            margin: 5,
+            cursor: "pointer",
+          }}
+        >
+          Home
+        </Typography>
+        <Typography
+          variant={"caption"}
+          component={motion.button}
+          whileHover={{ scale: 1.09 }}
+          style={{
+            color: "whitesmoke",
+            textTransform: "capitalize",
+            fontFamily: "quicksand",
+            margin: 5,
+            cursor: "pointer",
+          }}
+        >
+          All Anime
+        </Typography>
+        <Typography
+          variant={"caption"}
+          component={motion.button}
+          whileHover={{ scale: 1.09 }}
+          style={{
+            color: "whitesmoke",
+            textTransform: "capitalize",
+            fontFamily: "quicksand",
+            margin: 5,
+            cursor: "pointer",
+          }}
+        >
+          Top Anime
+        </Typography>
+        <Typography
+          variant={"caption"}
+          component={motion.button}
+          whileHover={{ scale: 1.09 }}
+          style={{
+            color: "whitesmoke",
+            textTransform: "capitalize",
+            fontFamily: "quicksand",
+            margin: 5,
+            cursor: "pointer",
+          }}
+        >
+          About Us
+        </Typography>
+      </div>
+      <Typography
+        style={{
+          color: "white",
+          textTransform: "capitalize",
+          fontFamily: "quicksand",
+          position: "relative",
+          top: "40%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          textAlign: "center",
+        }}
+      >
+        © AniLite 2021
       </Typography>
     </div>
   );
