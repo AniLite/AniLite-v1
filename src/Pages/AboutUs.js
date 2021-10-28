@@ -14,6 +14,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { makeStyles } from "@material-ui/styles";
 import { motion } from "framer-motion";
 import aarush_dp from "../Media/Aarush_dp.jpg";
+import shivansh_dp from "../Media/Shivansh_dp.jpeg";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -51,7 +52,7 @@ export default function AboutUs() {
               <div style={{ backgroundColor: "#444444" }}>
                 <Avatar
                   alt="Shivansh Shukla"
-                  src="https://i.pinimg.com/originals/ef/90/c4/ef90c415f34dc1615664466047952e95.png"
+                  src={shivansh_dp}
                   style={{
                     height: 120,
                     width: 120,
@@ -66,9 +67,8 @@ export default function AboutUs() {
                     Shivansh Shukla
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    Python | Django | Django REST Framework | PostgreSQL | API
+                    Design | Caching | Scripting
                   </Typography>
                   <Typography
                     gutterBottom
@@ -140,9 +140,8 @@ export default function AboutUs() {
                     Aarush Sinha
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    Javascript | ReactJS | Material UI | Tailwind CSS | Framer
+                    Motion | UI Design
                   </Typography>
                   <Typography
                     gutterBottom
