@@ -25,7 +25,7 @@
     "reactstrap": "^9.0.1",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
+    "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.2"
   },
   "proxy": "https://anilite-api.herokuapp.com",
